@@ -1,0 +1,28 @@
+{
+    "title": "Experience Demo",
+
+    "description": "This is a short demonstration highlighting the elements required for developing the app, and for user experience testing. This description has been extended a small amount for the sole purpose of testing the scrolling element in the second screen's UIView.",
+
+    "thumbnail": "image-from-rawpixel-id-3578794-jpeg.jpg",
+
+    "hasVoiceOver": true,
+    "voiceOver": "voiceOver_File.m4a",
+    "subtitles": "subtitle_file_name.vtt",
+
+    "hasAmbientSound": true,
+    "ambientSound": "ambient_Sound_File.m4a",
+
+    "hasHaptics": false,
+    "haptics": "haptics_file.json",
+
+    "credits":
+        {
+          "voiceOverCredit": "Nat Bates",
+          "ambientSoundCredit": "Travis Lizio",
+          "hapticsCredit": "Travis Lizio",
+          "scriptCredit": "The script for this experience was written in part by AI. all content was carefully reviewed, edited, and approved by our human team before inclusion in the app."
+        },
+        
+    "videoFileLocation": ""
+}
+

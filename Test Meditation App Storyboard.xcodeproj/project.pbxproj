@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2134342BB2507E0050BAAE /* Experiences.swift */; };
+		5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */; };
+		5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */; };
+		5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AE2B9187B10006C7A3 /* ViewController.swift */; };
+		5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B02B9187B10006C7A3 /* Main.storyboard */; };
+		5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B32B9187B20006C7A3 /* Assets.xcassets */; };
+		5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */; };
+		5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */; };
+		5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */; };
+		5BE21D5D2BB11089008F8853 /* Experiences in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D5C2BB11089008F8853 /* Experiences */; };
+		5BE21D662BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */; };
+		5BE21D672BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */; };
+		5BE21D682BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */; };
+		5BE21D692BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B2134342BB2507E0050BAAE /* Experiences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experiences.swift; sourceTree = "<group>"; };
+		5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Meditation App Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5B22A3AE2B9187B10006C7A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B22A3B12B9187B10006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B22A3B32B9187B20006C7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B22A3B62B9187B20006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B22A3B82B9187B20006C7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVideoPlayer.swift; sourceTree = "<group>"; };
+		5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExperienceSelect.swift; sourceTree = "<group>"; };
+		5BE21D5C2BB11089008F8853 /* Experiences */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Experiences; sourceTree = "<group>"; };
+		5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Ground.m4a"; sourceTree = "<group>"; };
+		5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Grass.m4a"; sourceTree = "<group>"; };
+		5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Nighttime.m4a"; sourceTree = "<group>"; };
+		5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu - Autumn Morning.m4a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B22A3A42B9187B10006C7A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B22A39E2B9187B10006C7A3 = {
+			isa = PBXGroup;
+			children = (
+				5BE21D5C2BB11089008F8853 /* Experiences */,
+				5BC505D92B96E5D3007F8442 /* Audio */,
+				5B22A3A92B9187B10006C7A3 /* Test Meditation App Storyboard */,
+				5B22A3A82B9187B10006C7A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B22A3A82B9187B10006C7A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B22A3A92B9187B10006C7A3 /* Test Meditation App Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */,
+				5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */,
+				5B22A3B02B9187B10006C7A3 /* Main.storyboard */,
+				5B2134342BB2507E0050BAAE /* Experiences.swift */,
+				5BA1C5192BA923FF00933247 /* ViewControllers */,
+				5B22A3B32B9187B20006C7A3 /* Assets.xcassets */,
+				5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */,
+				5B22A3B82B9187B20006C7A3 /* Info.plist */,
+			);
+			path = "Test Meditation App Storyboard";
+			sourceTree = "<group>";
+		};
+		5BA1C5192BA923FF00933247 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B22A3AE2B9187B10006C7A3 /* ViewController.swift */,
+				5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */,
+				5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5BC505D92B96E5D3007F8442 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */,
+				5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */,
+				5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */,
+				5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B22A3A62B9187B10006C7A3 /* Test Meditation App Storyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Test Meditation App Storyboard" */;
+			buildPhases = (
+				5B22A3A32B9187B10006C7A3 /* Sources */,
+				5B22A3A42B9187B10006C7A3 /* Frameworks */,
+				5B22A3A52B9187B10006C7A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Test Meditation App Storyboard";
+			productName = "Test Meditation App Storyboard";
+			productReference = 5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B22A39F2B9187B10006C7A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					100,
+				);
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					5B22A3A62B9187B10006C7A3 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Test Meditation App Storyboard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B22A39E2B9187B10006C7A3;
+			productRefGroup = 5B22A3A82B9187B10006C7A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B22A3A62B9187B10006C7A3 /* Test Meditation App Storyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B22A3A52B9187B10006C7A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */,
+				5BE21D662BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a in Resources */,
+				5BE21D5D2BB11089008F8853 /* Experiences in Resources */,
+				5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */,
+				5BE21D682BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a in Resources */,
+				5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */,
+				5BE21D672BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a in Resources */,
+				5BE21D692BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B22A3A32B9187B10006C7A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */,
+				5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */,
+				5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */,
+				5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */,
+				5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */,
+				5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B22A3B02B9187B10006C7A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B22A3B12B9187B10006C7A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B22A3B62B9187B20006C7A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B22A3B92B9187B20006C7A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B22A3BA2B9187B20006C7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B22A3BC2B9187B20006C7A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JGBDY6PT4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Test Meditation App Storyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Quiet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "TravvDogg.Test-Meditation-App-Storyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5B22A3BD2B9187B20006C7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JGBDY6PT4U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Test Meditation App Storyboard/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Quiet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "TravvDogg.Test-Meditation-App-Storyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Test Meditation App Storyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B22A3B92B9187B20006C7A3 /* Debug */,
+				5B22A3BA2B9187B20006C7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Test Meditation App Storyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B22A3BC2B9187B20006C7A3 /* Debug */,
+				5B22A3BD2B9187B20006C7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B22A39F2B9187B10006C7A3 /* Project object */;
+}
