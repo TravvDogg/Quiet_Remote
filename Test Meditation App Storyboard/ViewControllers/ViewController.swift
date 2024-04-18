@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var uiEllipsesButton: UIButton!
     
     
-    
-    
     // MARK: - Actions
     @IBAction func uiEllipsesButtonPressed(_ sender: UIButton) {
         updateEllipsesButtonUI()
@@ -59,6 +57,7 @@ class ViewController: UIViewController {
         }
         
         ColorManager.shared.muteUI = uiEllipsesButton.menu?.children
+        
     }
     
     // MARK: - Properties
