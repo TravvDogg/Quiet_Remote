@@ -71,6 +71,7 @@ class ViewController: UIViewController {
     var muteStateKey = "isMuted"
     var selectedSegmentIndex = 0
     var currentPlayerIndex: Int = -1
+    
         
     // MARK: - UI Configuration
     func configureUI() {
