@@ -216,9 +216,9 @@ class ViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        isMuted = UserDefaults.standard.bool(forKey: muteStateKey)
         do {
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setActive(isMuted ? false : true)
         } catch {
             print("Audio session activation failed: \(error)")
         }
@@ -226,19 +226,18 @@ class ViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        isMuted = UserDefaults.standard.bool(forKey: muteStateKey)
+
         configureUI()
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setActive(isMuted ? false : true)
         } catch {
             print("Failed to set up audio session: \(error)")
         }
         
         loadAudioFiles()
-        isMuted = UserDefaults.standard.bool(forKey: muteStateKey)
-        
         if !isMuted {
             if let firstPlayer = audioPlayers.first {
                 firstPlayer?.play()
@@ -360,9 +359,20 @@ class ViewController: UIViewController {
             if let currentPlayer = audioPlayers[currentPlayerIndex] {
                 fadeVolume(player: currentPlayer, toVolume: 0.0, duration: 0.5) {
                     currentPlayer.stop()
+                    do {
+                        try AVAudioSession.sharedInstance().setActive(false)
+                    } catch {
+                        print("Audio session deactivation failed: \(error)")
+                    }
+                        
                 }
             }
         } else {
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("Audio session activation failed: \(error)")
+            }
             // Play the currently selected audio track
             currentPlayerIndex = selectedSegmentIndex
             // Fade in the audio
