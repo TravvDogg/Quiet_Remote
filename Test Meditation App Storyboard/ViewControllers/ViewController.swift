@@ -223,19 +223,14 @@ class ViewController: UIViewController {
             print("Audio session activation failed: \(error)")
         }
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         isMuted = UserDefaults.standard.bool(forKey: muteStateKey)
 
         configureUI()
         
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(isMuted ? false : true)
-        } catch {
-            print("Failed to set up audio session: \(error)")
-        }
+        beginPlayback()
         
         loadAudioFiles()
         if !isMuted {
@@ -349,9 +344,25 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func beginPlayback() {
+        do {
+            if !isMuted {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+            } else {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
+                try AVAudioSession.sharedInstance().setActive(false)
+            }
+        } catch {
+            print("Failed to set up audio session: \(error)")
+        }
+    }
+    
     func toggleMute() {
         isMuted.toggle()
         
+
         UserDefaults.standard.set(isMuted, forKey: muteStateKey)
         
         if isMuted {
@@ -359,20 +370,9 @@ class ViewController: UIViewController {
             if let currentPlayer = audioPlayers[currentPlayerIndex] {
                 fadeVolume(player: currentPlayer, toVolume: 0.0, duration: 0.5) {
                     currentPlayer.stop()
-                    do {
-                        try AVAudioSession.sharedInstance().setActive(false)
-                    } catch {
-                        print("Audio session deactivation failed: \(error)")
-                    }
-                        
                 }
             }
         } else {
-            do {
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch {
-                print("Audio session activation failed: \(error)")
-            }
             // Play the currently selected audio track
             currentPlayerIndex = selectedSegmentIndex
             // Fade in the audio
@@ -384,6 +384,7 @@ class ViewController: UIViewController {
             }
         }
         
+        beginPlayback()
         updateEllipsesButtonUI()
     }
     
