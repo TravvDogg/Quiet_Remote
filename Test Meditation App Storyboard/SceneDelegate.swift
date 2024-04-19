@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Quiet
+//  Test Meditation App Storyboard
 //
 //  Created by Travis Lizio on 1/3/2024.
 //
