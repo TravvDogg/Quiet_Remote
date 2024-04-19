@@ -1,11 +1,23 @@
 # Xcode
 
 ## Custom Directories
+
+# ignore the media folder with large a/v files
 Media/
 
+# ignore changes made to interface related files, to avoid constant undocumentable changes or caching
+xcuserdata/
+
 ## Custom FileNames
+
+# ignore the custom icon set to files and folders in macOS
 Icon?
 Icon
+
+# ignore auto generated macOS files
+.DS_Store
+
+## Custom Extensions
 
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
