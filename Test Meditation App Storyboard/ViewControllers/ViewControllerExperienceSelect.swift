@@ -12,7 +12,7 @@ import Foundation
 class ViewControllerExperienceSelect: UIViewController {
     
     func loadExperienceData(genre: String, experienceName: String) -> (Experience?, UIImage?) {
-        guard let jsonPath = Bundle.main.path(forResource: "videoData", ofType: "json", inDirectory: "Experiences/\(genre)/\(experienceName)") else {
+        guard let jsonPath = Bundle.main.path(forResource: "videoData", ofType: "json", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") else {
             print("Failed to find JSON file")
             return (nil, nil)
         }
@@ -29,7 +29,7 @@ class ViewControllerExperienceSelect: UIViewController {
         }
         
         // Load thumbnail image
-        guard let thumbnailPath = Bundle.main.path(forResource: experience.thumbnail, ofType: nil, inDirectory: "Experiences/\(genre)/\(experienceName)") else {
+        guard let thumbnailPath = Bundle.main.path(forResource: experience.thumbnail, ofType: nil, inDirectory: "Media/Experiences/\(genre)/\(experienceName)") else {
             print("Failed to find thumbnail image")
             return (experience, nil)
         }

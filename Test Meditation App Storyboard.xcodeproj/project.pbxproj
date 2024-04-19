@@ -14,13 +14,9 @@
 		5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B02B9187B10006C7A3 /* Main.storyboard */; };
 		5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B32B9187B20006C7A3 /* Assets.xcassets */; };
 		5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */; };
+		5B54E3632BD2139B00DAD2A8 /* Media in Resources */ = {isa = PBXBuildFile; fileRef = 5B54E3622BD2139B00DAD2A8 /* Media */; };
 		5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */; };
 		5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */; };
-		5BE21D5D2BB11089008F8853 /* Experiences in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D5C2BB11089008F8853 /* Experiences */; };
-		5BE21D662BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */; };
-		5BE21D672BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */; };
-		5BE21D682BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */; };
-		5BE21D692BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +29,9 @@
 		5B22A3B32B9187B20006C7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B22A3B62B9187B20006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B22A3B82B9187B20006C7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B54E3622BD2139B00DAD2A8 /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Media; sourceTree = "<group>"; };
 		5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVideoPlayer.swift; sourceTree = "<group>"; };
 		5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExperienceSelect.swift; sourceTree = "<group>"; };
-		5BE21D5C2BB11089008F8853 /* Experiences */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Experiences; sourceTree = "<group>"; };
-		5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Ground.m4a"; sourceTree = "<group>"; };
-		5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Grass.m4a"; sourceTree = "<group>"; };
-		5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu Music - Nighttime.m4a"; sourceTree = "<group>"; };
-		5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Meditation App Menu - Autumn Morning.m4a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +48,7 @@
 		5B22A39E2B9187B10006C7A3 = {
 			isa = PBXGroup;
 			children = (
-				5BE21D5C2BB11089008F8853 /* Experiences */,
-				5BC505D92B96E5D3007F8442 /* Audio */,
+				5B54E3622BD2139B00DAD2A8 /* Media */,
 				5B22A3A92B9187B10006C7A3 /* Test Meditation App Storyboard */,
 				5B22A3A82B9187B10006C7A3 /* Products */,
 			);
@@ -94,17 +85,6 @@
 				5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		5BC505D92B96E5D3007F8442 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				5BE21D652BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a */,
-				5BE21D632BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a */,
-				5BE21D622BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a */,
-				5BE21D642BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a */,
-			);
-			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,13 +149,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */,
-				5BE21D662BB18BB8008F8853 /* Meditation App Menu Music - Ground.m4a in Resources */,
-				5BE21D5D2BB11089008F8853 /* Experiences in Resources */,
+				5B54E3632BD2139B00DAD2A8 /* Media in Resources */,
 				5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */,
-				5BE21D682BB18BB8008F8853 /* Meditation App Menu Music - Nighttime.m4a in Resources */,
 				5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */,
-				5BE21D672BB18BB8008F8853 /* Meditation App Menu Music - Grass.m4a in Resources */,
-				5BE21D692BB18BB8008F8853 /* Meditation App Menu - Autumn Morning.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
