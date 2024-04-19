@@ -3,7 +3,8 @@
 ## Custom Directories
 Media/
 
-#
+## Custom FileNames
+Icon?
 
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
