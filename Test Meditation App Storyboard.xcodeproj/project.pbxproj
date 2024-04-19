@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2134342BB2507E0050BAAE /* Experiences.swift */; };
+		5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */; };
+		5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */; };
+		5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AE2B9187B10006C7A3 /* ViewController.swift */; };
+		5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B02B9187B10006C7A3 /* Main.storyboard */; };
+		5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B32B9187B20006C7A3 /* Assets.xcassets */; };
+		5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */; };
 		5B54E3632BD2139B00DAD2A8 /* Media in Resources */ = {isa = PBXBuildFile; fileRef = 5B54E3622BD2139B00DAD2A8 /* Media */; };
-		5B54E3652BD2674100DAD2A8 /* Quiet in Resources */ = {isa = PBXBuildFile; fileRef = 5B54E3642BD2674100DAD2A8 /* Quiet */; };
+		5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */; };
+		5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B22A3A72B9187B10006C7A3 /* Quiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B2134342BB2507E0050BAAE /* Experiences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experiences.swift; sourceTree = "<group>"; };
+		5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Meditation App Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5B22A3AE2B9187B10006C7A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B22A3B12B9187B10006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B22A3B32B9187B20006C7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B22A3B62B9187B20006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B22A3B82B9187B20006C7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B54E3622BD2139B00DAD2A8 /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Media; sourceTree = "<group>"; };
-		5B54E3642BD2674100DAD2A8 /* Quiet */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Quiet; sourceTree = "<group>"; };
+		5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVideoPlayer.swift; sourceTree = "<group>"; };
+		5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExperienceSelect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				5B54E3622BD2139B00DAD2A8 /* Media */,
-				5B54E3642BD2674100DAD2A8 /* Quiet */,
+				5B22A3A92B9187B10006C7A3 /* Test Meditation App Storyboard */,
 				5B22A3A82B9187B10006C7A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,17 +57,42 @@
 		5B22A3A82B9187B10006C7A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B22A3A72B9187B10006C7A3 /* Quiet.app */,
+				5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5B22A3A92B9187B10006C7A3 /* Test Meditation App Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */,
+				5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */,
+				5B22A3B02B9187B10006C7A3 /* Main.storyboard */,
+				5B2134342BB2507E0050BAAE /* Experiences.swift */,
+				5BA1C5192BA923FF00933247 /* ViewControllers */,
+				5B22A3B32B9187B20006C7A3 /* Assets.xcassets */,
+				5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */,
+				5B22A3B82B9187B20006C7A3 /* Info.plist */,
+			);
+			path = "Test Meditation App Storyboard";
+			sourceTree = "<group>";
+		};
+		5BA1C5192BA923FF00933247 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B22A3AE2B9187B10006C7A3 /* ViewController.swift */,
+				5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */,
+				5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B22A3A62B9187B10006C7A3 /* Quiet */ = {
+		5B22A3A62B9187B10006C7A3 /* Test Meditation App Storyboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Quiet" */;
+			buildConfigurationList = 5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Test Meditation App Storyboard" */;
 			buildPhases = (
 				5B22A3A32B9187B10006C7A3 /* Sources */,
 				5B22A3A42B9187B10006C7A3 /* Frameworks */,
@@ -60,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = Quiet;
+			name = "Test Meditation App Storyboard";
 			productName = "Test Meditation App Storyboard";
-			productReference = 5B22A3A72B9187B10006C7A3 /* Quiet.app */;
+			productReference = 5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -83,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Quiet" */;
+			buildConfigurationList = 5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Test Meditation App Storyboard" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -96,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B22A3A62B9187B10006C7A3 /* Quiet */,
+				5B22A3A62B9187B10006C7A3 /* Test Meditation App Storyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -106,8 +148,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */,
 				5B54E3632BD2139B00DAD2A8 /* Media in Resources */,
-				5B54E3652BD2674100DAD2A8 /* Quiet in Resources */,
+				5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */,
+				5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,10 +162,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */,
+				5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */,
+				5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */,
+				5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */,
+				5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */,
+				5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B22A3B02B9187B10006C7A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B22A3B12B9187B10006C7A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B22A3B62B9187B20006C7A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5B22A3B92B9187B20006C7A3 /* Debug */ = {
@@ -316,7 +385,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Quiet" */ = {
+		5B22A3A22B9187B10006C7A3 /* Build configuration list for PBXProject "Test Meditation App Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B22A3B92B9187B20006C7A3 /* Debug */,
@@ -325,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Quiet" */ = {
+		5B22A3BB2B9187B20006C7A3 /* Build configuration list for PBXNativeTarget "Test Meditation App Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B22A3BC2B9187B20006C7A3 /* Debug */,
