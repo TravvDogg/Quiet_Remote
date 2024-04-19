@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B22A3A62B9187B10006C7A3"
-               BuildableName = "Test Meditation App Storyboard.app"
-               BlueprintName = "Test Meditation App Storyboard"
-               ReferencedContainer = "container:Test Meditation App Storyboard.xcodeproj">
+               BuildableName = "Quiet.app"
+               BlueprintName = "Quiet"
+               ReferencedContainer = "container:Quiet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B22A3A62B9187B10006C7A3"
-            BuildableName = "Test Meditation App Storyboard.app"
-            BlueprintName = "Test Meditation App Storyboard"
-            ReferencedContainer = "container:Test Meditation App Storyboard.xcodeproj">
+            BuildableName = "Quiet.app"
+            BlueprintName = "Quiet"
+            ReferencedContainer = "container:Quiet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B22A3A62B9187B10006C7A3"
-            BuildableName = "Test Meditation App Storyboard.app"
-            BlueprintName = "Test Meditation App Storyboard"
-            ReferencedContainer = "container:Test Meditation App Storyboard.xcodeproj">
+            BuildableName = "Quiet.app"
+            BlueprintName = "Quiet"
+            ReferencedContainer = "container:Quiet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

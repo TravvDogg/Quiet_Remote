@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Test Meditation App Storyboard
+//  Quiet
 //
 //  Created by Travis Lizio on 25/3/2024. (assisted by ChatGPT and Claude AI)
 //

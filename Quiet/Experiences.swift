@@ -1,6 +1,6 @@
 //
 //  Experiences.swift
-//  Test Meditation App Storyboard
+//  Quiet
 //
 //  Created by Travis Lizio on 26/3/2024.
 //

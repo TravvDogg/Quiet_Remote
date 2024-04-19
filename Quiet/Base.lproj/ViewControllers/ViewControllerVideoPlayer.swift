@@ -1,6 +1,6 @@
 //
 //  ViewControllerVideoPlayer.swift
-//  Test Meditation App Storyboard
+//  Quiet
 //
 //  Created by Travis Lizio on 14/4/2024.
 //
