@@ -244,7 +244,7 @@ class ViewControllerExperienceSelect: UIViewController {
 // Extension to count the number of lines in a label
 extension UILabel {
     func countLines() -> Int {
-        guard let text = self.text else {
+        guard self.text != nil else {
             return 0
         }
         
