@@ -21,12 +21,13 @@
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhW-Cd-l51">
                                 <rect key="frame" x="172" y="413" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="a7g-mn-AOA"/>
-                                    <constraint firstAttribute="width" constant="70" id="i72-PO-ey8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="a7g-mn-AOA"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="i72-PO-ey8"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="capsule" buttonSize="large"/>
+                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="capsule"/>
                                 <connections>
                                     <segue destination="ZiO-ZK-qHb" kind="presentation" id="kde-NY-ntE"/>
                                 </connections>
@@ -48,10 +49,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zi8-TX-12P" userLabel="uiEllipsesButton">
-                                <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                                <rect key="frame" x="344" y="0.0" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Qe7-jt-y6A"/>
-                                    <constraint firstAttribute="height" constant="44" id="Vyk-kN-28x"/>
+                                    <constraint firstAttribute="width" constant="50" id="Qe7-jt-y6A"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vyk-kN-28x"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system">
@@ -146,7 +147,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exd-96-9Sy" userLabel="uiEllipsiesButton">
-                                <rect key="frame" x="344" y="20" width="50" height="34"/>
+                                <rect key="frame" x="344" y="20" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zru-bS-W10"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ellipsis.circle" catalog="system">
                                     <backgroundConfiguration key="background"/>
@@ -156,8 +160,8 @@
                                     <action selector="UiExperienceSelectEllipsesButtonPressed:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="xcK-zF-sXm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
-                                <rect key="frame" x="50" y="697" width="314" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
+                                <rect key="frame" x="50" y="649" width="314" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -168,8 +172,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUK-zH-cNE" userLabel="More Button">
-                                <rect key="frame" x="323" y="667.5" width="41" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MORE" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUK-zH-cNE" userLabel="More Button">
+                                <rect key="frame" x="50" y="667.5" width="314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -193,6 +197,7 @@
                             <constraint firstItem="Jod-EP-xud" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="20" id="8Ep-wA-bQ9"/>
                             <constraint firstItem="ucV-8R-Pap" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="76" id="B92-x9-fDf"/>
                             <constraint firstItem="TXv-ag-DMd" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="BNU-0s-yKK"/>
+                            <constraint firstItem="iUK-zH-cNE" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="Hjg-uZ-s5M"/>
                             <constraint firstItem="Jod-EP-xud" firstAttribute="centerX" secondItem="wfn-oH-g37" secondAttribute="centerX" id="JWW-Yj-fnE"/>
                             <constraint firstItem="5fc-vD-oBj" firstAttribute="top" secondItem="Ldw-oq-ies" secondAttribute="bottom" constant="23" id="LH7-AR-gRh"/>
                             <constraint firstItem="Exd-96-9Sy" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="20" id="LIx-kJ-Go5"/>
@@ -231,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwB-f0-gub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="757"/>
+            <point key="canvasLocation" x="1208.6956521739132" y="756.69642857142856"/>
         </scene>
         <!--View Controller Video Player-->
         <scene sceneID="Fgv-nL-INI">
