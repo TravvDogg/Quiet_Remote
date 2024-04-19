@@ -315,9 +315,9 @@ class ViewController: UIViewController {
         nextPlayer.currentTime = currentTime
 
         // Calculate remaining duration based on current volume if already fading
-        let currentVolume = currentPlayer.volume
+        //let currentVolume = currentPlayer.volume
         let nextVolume = nextPlayer.volume
-        let adjustedDuration = initialDuration * Double(1 - nextVolume)
+        //let adjustedDuration = initialDuration * Double(1 - nextVolume)
 
         // Start fade-out and fade-in with adjusted durations
         /* fadeVolume(player: currentPlayer, toVolume: 0, duration: adjustedDuration) {
