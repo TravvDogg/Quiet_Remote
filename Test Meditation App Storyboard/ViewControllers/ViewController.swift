@@ -269,7 +269,7 @@ class ViewController: UIViewController {
             "Meditation App Menu Music - Nighttime.m4a"
         ]
         for (index, fileName) in audioFileNames.enumerated() {
-            guard let url = Bundle.main.url(forResource: fileName, withExtension: nil) else {
+            guard let url = Bundle.main.url(forResource: fileName, withExtension: nil, subdirectory:"/Media/Audio") else {
                 print("Could not find file: \(fileName)")
                 continue
             }
