@@ -71,6 +71,7 @@ class ViewController: UIViewController {
     var muteStateKey = "isMuted"
     var selectedSegmentIndex = 0
     var currentPlayerIndex: Int = -1
+    var ExperiencePlayback = false
     
         
     // MARK: - UI Configuration
@@ -200,7 +201,7 @@ class ViewController: UIViewController {
                     Accumulated.distance = 0
                 }
                 
-                print("Selected Segment Index: \(tabControl.selectedSegmentIndex)")
+                //print("Selected Segment Index: \(tabControl.selectedSegmentIndex)")
             }
         case .ended, .cancelled:
             // Animate the title back to its original position
@@ -281,7 +282,7 @@ class ViewController: UIViewController {
                 let player = try AVAudioPlayer(contentsOf: url)
                 player.numberOfLoops = -1 // Loop indefinitely
                 audioPlayers[index] = player
-                print("Loaded \(fileName) successfully")
+                //print("Loaded \(fileName) successfully")
             } catch {
                 print("Could not load file: \(fileName), error: \(error)")
             }

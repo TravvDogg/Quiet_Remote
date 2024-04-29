@@ -128,6 +128,8 @@ class ViewControllerExperienceSelect: UIViewController {
         // Change these later to be dynamic, for now since there is only one experience, keep it simple.
         
         if let experience = experience{
+            
+            #if DEBUG
             print("------------ \(experienceName) in \(genre) ---------------")
             print("Title: \(experience.title)")
             print("Description: \(experience.description)")
@@ -145,6 +147,7 @@ class ViewControllerExperienceSelect: UIViewController {
             print("  Ambient Sound Credit: \(experience.credits.ambientSoundCredit)")
             print("  Haptics Credit: \(experience.credits.hapticsCredit)")
             print("  Script Credit: \(experience.credits.scriptCredit)")
+            #endif
             
         //MARK: - Indicators and Labels
             // Haptics Indicator
@@ -226,6 +229,9 @@ class ViewControllerExperienceSelect: UIViewController {
             
             descriptionLabel.layer.mask = maskLayer
         }
+        
+        // Set Thumbnail Image
+        
         
         /*
         // MARK: - Navigation

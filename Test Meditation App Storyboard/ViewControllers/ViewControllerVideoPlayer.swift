@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewControllerVideoPlayer: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var balanceSlider: UISlider!
+    
+    // MARK: - Actions
+    
+    @IBAction func balanceSlider(_ sender: UISlider) {
+        balanceSlider.value
+    }
+    
+    // MARK: - Properties
+    
     // MARK: - UI Configuration
     func configureUI() {
         if #available(iOS 13.0, *) {
@@ -19,7 +32,16 @@ class ViewControllerVideoPlayer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        // Do any additional setup after loading the view.
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        print("view will appear or something")
+        AudioManager.shared.stopAllAudio()
+        
+        // start video player audio.
     }
     
 
@@ -33,4 +55,18 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     */
 
+}
+
+// MARK: - Extensions
+
+class AudioManager {
+    static let shared = AudioManager()
+    
+    var audioPlayers: [AVAudioPlayer?] = [nil, nil, nil, nil]
+    
+    func stopAllAudio(){
+        for player in audioPlayers {
+            player?.stop()
+        }
+    }
 }
