@@ -280,8 +280,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fl8-Ra-evd">
-                                <rect key="frame" x="20" y="40" width="78" height="34.5"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" imagePlacement="leading" title="Back">
+                                <rect key="frame" x="5" y="10" width="138.5" height="34.5"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Experiences" imagePadding="5">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="large" weight="semibold"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -296,19 +299,39 @@
                                     <constraint firstAttribute="height" constant="6.2000000000000002" id="8rf-ck-7Oj"/>
                                 </constraints>
                             </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.34999999999999998" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
+                                <rect key="frame" x="38" y="781" width="338" height="31"/>
+                                <imageReference key="minimumValueImage" image="waveform" catalog="system" renderingMode="hierarchical-single">
+                                    <hierarchicalColors>
+                                        <color systemColor="labelColor"/>
+                                        <color systemColor="secondaryLabelColor"/>
+                                        <color systemColor="tertiaryLabelColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                                <imageReference key="maximumValueImage" image="mic" catalog="system" renderingMode="hierarchical-single">
+                                    <hierarchicalColors>
+                                        <color systemColor="labelColor"/>
+                                        <color systemColor="secondaryLabelColor"/>
+                                        <color systemColor="tertiaryLabelColor"/>
+                                    </hierarchicalColors>
+                                </imageReference>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0h2-cv-3cw"/>
                         <color key="backgroundColor" red="0.42352941179999998" green="0.39607843139999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JFQ-o2-ypi" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="40" id="2mF-h2-baa"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="DPy-39-k9r" secondAttribute="trailing" constant="50" id="3Pm-XV-DWw"/>
-                            <constraint firstItem="fl8-Ra-evd" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="20" id="E9f-Hc-duv"/>
-                            <constraint firstItem="fl8-Ra-evd" firstAttribute="top" secondItem="0h2-cv-3cw" secondAttribute="top" constant="40" id="eXo-Cw-6Ft"/>
+                            <constraint firstItem="fl8-Ra-evd" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="5" id="E9f-Hc-duv"/>
+                            <constraint firstItem="3QJ-9S-zSX" firstAttribute="top" secondItem="DPy-39-k9r" secondAttribute="bottom" constant="20" id="F84-99-mLk"/>
+                            <constraint firstItem="JFQ-o2-ypi" firstAttribute="trailing" secondItem="3QJ-9S-zSX" secondAttribute="trailing" id="Pu2-0K-dJt"/>
+                            <constraint firstItem="JFQ-o2-ypi" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="40" id="cUf-6x-pSW"/>
+                            <constraint firstItem="fl8-Ra-evd" firstAttribute="top" secondItem="0h2-cv-3cw" secondAttribute="top" constant="10" id="eXo-Cw-6Ft"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="top" secondItem="JFQ-o2-ypi" secondAttribute="bottom" constant="45" id="fVV-Vq-pDR"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="centerX" secondItem="bhz-D9-NRm" secondAttribute="centerX" id="jcq-2i-PBO"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="50" id="lu2-Hs-eFA"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="JFQ-o2-ypi" secondAttribute="trailing" constant="40" id="snm-hF-6Pv"/>
+                            <constraint firstItem="3QJ-9S-zSX" firstAttribute="leading" secondItem="JFQ-o2-ypi" secondAttribute="leading" id="ste-LP-iIe"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="DPy-39-k9r" secondAttribute="trailing" constant="50" id="u0M-ai-43J"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="bottom" secondItem="DPy-39-k9r" secondAttribute="bottom" constant="135" id="yNX-st-lMo"/>
                         </constraints>
@@ -322,12 +345,12 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
+        <image name="ellipsis.circle" catalog="system" width="32" height="32"/>
         <image name="gobackward.10" catalog="system" width="119" height="128"/>
         <image name="goforward.10" catalog="system" width="119" height="128"/>
         <image name="iphone.radiowaves.left.and.right" catalog="system" width="128" height="85"/>
         <image name="mic" catalog="system" width="110" height="128"/>
-        <image name="photo.artframe.circle" catalog="system" width="128" height="123"/>
+        <image name="photo.artframe.circle" catalog="system" width="32" height="32"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="waveform" catalog="system" width="125" height="128"/>
         <namedColor name="GroundTint">
