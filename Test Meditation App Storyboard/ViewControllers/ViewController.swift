@@ -95,20 +95,24 @@ class ViewController: UIViewController {
         
         switch selectedSegmentIndex {
         case 0:
-            ColorManager.shared.backgroundColor = #colorLiteral(red: 0.4235294118, green: 0.3960784314, blue: 0.3529411765, alpha: 1)
-            ColorManager.shared.tintColor = #colorLiteral(red: 0.7176470588, green: 0.6784313725, blue: 0.6078431373, alpha: 1)
+            //Ground
+            ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GroundPrimary)
+            ColorManager.shared.tintColor = UIColor(named: ColorAssets.GroundTint)
             ColorManager.shared.header = "Stress and Anxiety Relief"
         case 1:
-            ColorManager.shared.backgroundColor = #colorLiteral(red: 0.3294117647, green: 0.3882352941, blue: 0.4156862745, alpha: 1)
-            ColorManager.shared.tintColor = #colorLiteral(red: 0.7098039216, green: 0.6666666667, blue: 0.5176470588, alpha: 1)
+            //Sunrise
+            ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.SunrisePrimary)
+            ColorManager.shared.tintColor = UIColor(named: ColorAssets.SunriseTint)
             ColorManager.shared.header = "Energize and Inspire"
         case 2:
-            ColorManager.shared.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.3607843137, blue: 0.2980392157, alpha: 1)
-            ColorManager.shared.tintColor = #colorLiteral(red: 0.6745098039, green: 0.8352941176, blue: 0.6156862745, alpha: 1)
+            //Grass
+            ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GrassPrimary)
+            ColorManager.shared.tintColor = UIColor(named: ColorAssets.GrassTint)
             ColorManager.shared.header = "Tranquility and Focus"
         case 3:
-            ColorManager.shared.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.2509803922, alpha: 1)
-            ColorManager.shared.tintColor = #colorLiteral(red: 0.4549019608, green: 0.4470588235, blue: 0.4666666667, alpha: 1)
+            //Moon
+            ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.MoonPrimary)
+            ColorManager.shared.tintColor = UIColor(named: ColorAssets.MoonTint)
             ColorManager.shared.header = "Sleep and Relaxation"
         default:
             return // Exit method if selected index is out of bounds

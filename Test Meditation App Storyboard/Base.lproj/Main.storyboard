@@ -5,6 +5,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,7 +41,7 @@
                                     <segment title="Grass" width="90"/>
                                     <segment title="Moon" width="90"/>
                                 </segments>
-                                <color key="selectedSegmentTintColor" red="0.71764705882352942" green="0.67843137254901964" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" name="GroundTint"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stress and Anxiety Releif" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Ba-pUZ">
                                 <rect key="frame" x="50" y="56" width="314" height="24"/>
@@ -295,6 +296,7 @@
                                     <constraint firstAttribute="height" constant="6.2000000000000002" id="8rf-ck-7Oj"/>
                                 </constraints>
                             </progressView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.34999999999999998" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0h2-cv-3cw"/>
                         <color key="backgroundColor" red="0.42352941179999998" green="0.39607843139999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -328,8 +330,17 @@
         <image name="photo.artframe.circle" catalog="system" width="128" height="123"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="waveform" catalog="system" width="125" height="128"/>
+        <namedColor name="GroundTint">
+            <color red="0.71764705882352942" green="0.67843137254901964" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
