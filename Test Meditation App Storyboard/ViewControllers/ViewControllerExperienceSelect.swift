@@ -231,7 +231,9 @@ class ViewControllerExperienceSelect: UIViewController {
         }
         
         // Set Thumbnail Image
-        
+        if let thumbnailImage = thumbnailImage {
+            self.thumbnailImage.image = thumbnailImage
+        }
         
         /*
         // MARK: - Navigation
