@@ -69,7 +69,7 @@ class ViewControllerExperienceSelect: UIViewController {
     
     @IBOutlet weak var ambientIndicator: UIButton!
     
-    
+    var mainViewController: ViewController?
     // MARK: - Actions
     let infoIcon = UIImage(systemName: "info.bubble")
     @IBAction func UiExperienceSelectEllipsesButtonPressed(_ sender: UIButton) {

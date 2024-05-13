@@ -17,7 +17,8 @@ class ViewControllerVideoPlayer: UIViewController {
     // MARK: - Actions
     
     @IBAction func balanceSlider(_ sender: UISlider) {
-        balanceSlider.value
+        balanceSlider.value = roundf(balanceSlider.value)
+        
     }
     
     // MARK: - Properties
@@ -36,13 +37,21 @@ class ViewControllerVideoPlayer: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool){
-        super.viewWillAppear(animated)
-        print("view will appear or something")
-        AudioManager.shared.stopAllAudio()
-        
-        // start video player audio.
-    }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+            print("view will appear or something")
+            
+            if let viewControllerExperienceSelect = presentingViewController as? ViewControllerExperienceSelect,
+               let mainViewController = viewControllerExperienceSelect.mainViewController {
+                mainViewController.stopAudioPlayers()
+                print("stop audio players")
+            } else {
+                print("Presenting view controller is not an instance of OverlayViewController or mainViewController is nil")
+            }
+            
+            // start video player audio.
+        }
     
 
     /*
@@ -58,15 +67,3 @@ class ViewControllerVideoPlayer: UIViewController {
 }
 
 // MARK: - Extensions
-
-class AudioManager {
-    static let shared = AudioManager()
-    
-    var audioPlayers: [AVAudioPlayer?] = [nil, nil, nil, nil]
-    
-    func stopAllAudio(){
-        for player in audioPlayers {
-            player?.stop()
-        }
-    }
-}

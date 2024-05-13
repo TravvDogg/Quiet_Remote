@@ -12,7 +12,10 @@ import ObjectiveC
 
 // MARK: - Utility Methods
 class ViewController: UIViewController {
-    
+    static func shared() -> ViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MainViewController") as! ViewController
+    }
     
     // MARK: - Outlets
     
@@ -350,6 +353,12 @@ class ViewController: UIViewController {
         }
     }
     
+    public func stopAudioPlayers() {
+        for player in audioPlayers {
+            player?.stop()
+        }
+    }
+    
     func beginPlayback() {
         do {
             if !isMuted {
@@ -392,6 +401,14 @@ class ViewController: UIViewController {
         beginPlayback()
         updateEllipsesButtonUI()
     }
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "OpenExperienceSelect" {
+                if let viewControllerExperienceSelect = segue.destination as? ViewControllerExperienceSelect {
+                    viewControllerExperienceSelect.mainViewController = self
+                }
+            }
+        }
     
 }
 
