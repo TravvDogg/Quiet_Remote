@@ -11,11 +11,10 @@ struct Experience: Codable {
     let title: String
     let description: String
     let thumbnail: String
-    let subtitles: String
     let hasVoiceOver: Bool
-    let voiceOver: String
     let hasAmbientSound: Bool
-    let ambientSound: String
+    let soundFile: String
+    let subtitles: String
     let hasHaptics: Bool
     let haptics: String
     let credits: Credits

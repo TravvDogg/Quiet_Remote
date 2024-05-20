@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <accessibilityOverrides dynamicTypePreference="0"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -160,7 +160,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="credit · time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-ag-DMd" userLabel="Credits Label">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="credit · 0 hour/s, 0 minute/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXv-ag-DMd" userLabel="Credits Label">
                                 <rect key="frame" x="50" y="104" width="314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +183,7 @@
                                     <segue destination="smQ-Hf-FSP" kind="show" id="c7j-YX-sgv"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
                                 <rect key="frame" x="20" y="140" width="374" height="374"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -299,7 +299,7 @@
                                     <constraint firstAttribute="height" constant="6.2000000000000002" id="8rf-ck-7Oj"/>
                                 </constraints>
                             </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="9" minValue="0.0" maxValue="9" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
                                 <imageReference key="minimumValueImage" image="waveform" catalog="system" renderingMode="hierarchical-single">
                                     <hierarchicalColors>
@@ -350,9 +350,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ThumbnailImage.png" width="1080" height="1080"/>
+        <image name="ThumbnailImage4.png" width="1080" height="1080"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="ellipsis.circle" catalog="system" width="32" height="32"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gobackward.10" catalog="system" width="119" height="128"/>
         <image name="goforward.10" catalog="system" width="119" height="128"/>
         <image name="iphone.radiowaves.left.and.right" catalog="system" width="128" height="85"/>
