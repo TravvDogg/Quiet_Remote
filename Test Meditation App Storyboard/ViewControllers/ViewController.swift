@@ -75,6 +75,7 @@ class ViewController: UIViewController {
     var selectedSegmentIndex = 0
     var currentPlayerIndex: Int = -1
     var ExperiencePlayback = false
+    var selectedGenre: String?
     
         
     // MARK: - UI Configuration
@@ -103,21 +104,25 @@ class ViewController: UIViewController {
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GroundPrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.GroundTint)
             ColorManager.shared.header = "Stress and Anxiety Relief"
+            selectedGenre = "Ground"
         case 1:
             //Sunrise
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.SunrisePrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.SunriseTint)
             ColorManager.shared.header = "Energize and Inspire"
+            selectedGenre = "Sunrise"
         case 2:
             //Grass
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GrassPrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.GrassTint)
             ColorManager.shared.header = "Tranquility and Focus"
+            selectedGenre = "Grass"
         case 3:
             //Moon
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.MoonPrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.MoonTint)
             ColorManager.shared.header = "Sleep and Relaxation"
+            selectedGenre = "Nighttime"
         default:
             return // Exit method if selected index is out of bounds
         }
@@ -401,11 +406,13 @@ class ViewController: UIViewController {
         beginPlayback()
         updateEllipsesButtonUI()
     }
- 
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "OpenExperienceSelect" {
                 if let viewControllerExperienceSelect = segue.destination as? ViewControllerExperienceSelect {
                     viewControllerExperienceSelect.mainViewController = self
+                    viewControllerExperienceSelect.selectedGenre = "Ground"
+                    viewControllerExperienceSelect.selectedExperienceName = "Experience Demo"
                 }
             }
         }

@@ -22,6 +22,15 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     
     // MARK: - Properties
+    var audioEngine: AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var audioMixerNode: AVAudioMixerNode!
+    var audioFile: AVAudioFile!
+    var audioUnitEQ: AVAudioUnitEQ!
+    
+    var experienceData: Experience?
+    var genre: String?
+    var experienceName: String?
     
     // MARK: - UI Configuration
     func configureUI() {
@@ -34,7 +43,42 @@ class ViewControllerVideoPlayer: UIViewController {
         super.viewDidLoad()
         configureUI()
         
+        // Initialize audio engine
+        audioEngine = AVAudioEngine()
         
+        // Create audio player node
+        audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attach(audioPlayerNode)
+        
+        // Create mixer node
+        audioMixerNode = audioEngine.mainMixerNode
+        
+        // Create audio unit EQ
+        audioUnitEQ = AVAudioUnitEQ(numberOfBands: 4)
+        audioEngine.attach(audioUnitEQ)
+        
+        // Connect audio nodes
+        audioEngine.connect(audioPlayerNode, to: audioUnitEQ, format: nil)
+        audioEngine.connect(audioUnitEQ, to: audioMixerNode, format: nil)
+        
+        guard let experienceData = experienceData else {
+            print("experience data is unavailable.")
+            return
+        }
+        
+        // Load audio file
+        if let genre = genre,
+           let experienceName = experienceName,
+           let soundFilePath = Bundle.main.path(forResource: experienceData.soundFile, ofType: nil, inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
+            do {
+                audioFile = try AVAudioFile(forReading: URL(fileURLWithPath: soundFilePath))
+            } catch {
+                print("Failed to load audio file: \(error)")
+            }
+        } else {
+            print("Genre ,experience name or experienceData is missing.")
+            print("Genre: \(genre ?? "not assigned"), Experience Name: \(experienceName ?? "not assigned")")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +97,7 @@ class ViewControllerVideoPlayer: UIViewController {
             // start video player audio.
         }
     
+    // MARK: - Utility and Helper Functions
 
     /*
     // MARK: - Navigation

@@ -180,7 +180,7 @@
                                     <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="smQ-Hf-FSP" kind="show" id="c7j-YX-sgv"/>
+                                    <action selector="segueToVideoPlayer:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="NNv-WX-4YA"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
@@ -230,14 +230,14 @@
                         <outlet property="headingLabel" destination="ucV-8R-Pap" id="0Vt-Rr-lFq"/>
                         <outlet property="moreButton" destination="iUK-zH-cNE" id="yeD-Uq-hci"/>
                         <outlet property="thumbnailImage" destination="Jod-EP-xud" id="imW-G1-oVQ"/>
-                        <outlet property="titleButtonText" destination="H3J-v0-tr0" id="Dqt-wM-r1b"/>
                         <outlet property="uiExperienceSelectEllipsesButton" destination="Exd-96-9Sy" id="Jah-jJ-UXa"/>
                         <outlet property="voiceOverIndicator" destination="KtF-wK-vKb" id="OJm-Ad-C6b"/>
+                        <segue destination="smQ-Hf-FSP" kind="show" identifier="showVideoPlayer" id="ZU7-R0-J7r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwB-f0-gub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208.6956521739132" y="756.69642857142856"/>
+            <point key="canvasLocation" x="1209" y="766"/>
         </scene>
         <!--View Controller Video Player-->
         <scene sceneID="Fgv-nL-INI">

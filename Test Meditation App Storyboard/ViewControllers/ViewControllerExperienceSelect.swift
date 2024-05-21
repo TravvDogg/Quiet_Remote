@@ -13,7 +13,7 @@ import AVFoundation
 class ViewControllerExperienceSelect: UIViewController {
     
     func loadExperienceData(genre: String, experienceName: String) async -> (Experience?, UIImage?, TimeInterval?) {
-        guard let jsonPath = Bundle.main.path(forResource: "videoData", ofType: "json", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") else {
+        guard let jsonPath = Bundle.main.path(forResource: "videoData", ofType: "json", inDirectory: "Media/Experiences/\(selectedGenre ?? "")/\(selectedExperienceName ?? "")") else {
             print("Failed to find JSON file")
             return (nil, nil, nil)
         }
@@ -83,7 +83,16 @@ class ViewControllerExperienceSelect: UIViewController {
     @IBOutlet weak var ambientIndicator: UIButton!
     
     var mainViewController: ViewController?
+    
+    // MARK: - Properties
+    
+    var selectedExperience: Experience?
+    
+    var selectedGenre: String?
+    var selectedExperienceName: String?
+
     // MARK: - Actions
+    
     let infoIcon = UIImage(systemName: "info.bubble")
     @IBAction func UiExperienceSelectEllipsesButtonPressed(_ sender: UIButton) {
         var muteUI: UIMenu
@@ -111,6 +120,26 @@ class ViewControllerExperienceSelect: UIViewController {
         sender.showsMenuAsPrimaryAction = true
         sender.menu = muteUI
     }
+    
+    @IBAction func segueToVideoPlayer(_ sender: Any) {
+        if let genre = selectedGenre, let experienceName = selectedExperienceName {
+                Task {
+                    let (experience, thumbnailImage, duration) = await loadExperienceData(genre: genre, experienceName: experienceName)
+                    selectedExperience = experience
+                    
+                    if selectedExperience != nil {
+                        // Perform the segue to the video player
+                        performSegue(withIdentifier: "showVideoPlayer", sender: self)
+                    } else {
+                        print("Selected experience is nil. Segue cancelled.")
+                    }
+                }
+            } else {
+                // Handle the case when selectedGenre or selectedExperienceName is nil
+                print("Selected genre or experience name is missing.")
+            }
+    }
+
         
         // MARK: - UI Configuration
     func configureUI() {
@@ -125,7 +154,7 @@ class ViewControllerExperienceSelect: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         configureUI()
-        
+
         if let backgroundColor = ColorManager.shared.backgroundColor {
             self.backgroundView.backgroundColor = backgroundColor
         }
@@ -135,13 +164,15 @@ class ViewControllerExperienceSelect: UIViewController {
         }
         // Do any additional setup after loading the view.
         
-        let genre = "Ground"
-        let experienceName = "Experience Demo"
-        // Change these later to be dynamic, for now since there is only one experience, keep it simple.
-        
-        Task {
-            let (experience, thumbnailImage, duration) = await loadExperienceData(genre: genre, experienceName: experienceName)
-            updateUI(experience: experience, thumbnailImage: thumbnailImage, duration: duration)
+        if let genre = selectedGenre,
+           let experienceName = selectedExperienceName {
+            Task {
+                let (experience, thumbnailImage, duration) = await loadExperienceData(genre: genre, experienceName: experienceName)
+                updateUI(experience: experience, thumbnailImage: thumbnailImage, duration: duration)
+            }
+        } else {
+            // Handle the case when selectedGenre or selectedExperienceName is nil
+            print("Selected genre or experience name is missing. - Lifecycle")
         }
     }
     func updateUI(experience: Experience?, thumbnailImage: UIImage?, duration: TimeInterval?) {
@@ -149,7 +180,7 @@ class ViewControllerExperienceSelect: UIViewController {
             return
         }
         
-        #if DEBUG
+#if DEBUG
         print("------------ \(experience.title) ---------------")
         print("Title: \(experience.title)")
         print("Description: \(experience.description)")
@@ -166,8 +197,8 @@ class ViewControllerExperienceSelect: UIViewController {
         print("  Ambient Sound Credit: \(experience.credits.ambientSoundCredit)")
         print("  Haptics Credit: \(experience.credits.hapticsCredit)")
         print("  Script Credit: \(experience.credits.scriptCredit)")
-        #endif
-            
+#endif
+        
         //MARK: - Indicators and Labels
         // Haptics Indicator
         if experience.hasHaptics {
@@ -198,22 +229,22 @@ class ViewControllerExperienceSelect: UIViewController {
         func creditToDisplay(experience: Experience, duration: TimeInterval?) -> String {
             if let duration = duration {
                 let formattedDuration: String
-    
-                    if duration >= 3600 {
-                        // Experience is longer than 1 hour
-                        let hours = Int(duration / 3600)
-                        let minutes = Int((duration.truncatingRemainder(dividingBy: 3600)) / 60)
-                        let hourUnit = hours == 1 ? "hour" : "hours"
-                        let minuteUnit = minutes == 1 ? "minute" : "minutes"
-                        formattedDuration = String(format: "%d %@ %02d %@", hours, hourUnit, minutes, minuteUnit)
-                    } else {
-                        // Experience is shorter than 1 hour
-                        let minutes = Int(duration / 60)
-                        let seconds = Int(duration.truncatingRemainder(dividingBy: 60))
-                        let minuteUnit = minutes == 1 ? "minute" : "minutes"
-                        let secondUnit = seconds == 1 ? "second" : "seconds"
-                        formattedDuration = String(format: "%d %@ %02d %@", minutes, minuteUnit, seconds, secondUnit)
-                    }
+                
+                if duration >= 3600 {
+                    // Experience is longer than 1 hour
+                    let hours = Int(duration / 3600)
+                    let minutes = Int((duration.truncatingRemainder(dividingBy: 3600)) / 60)
+                    let hourUnit = hours == 1 ? "hour" : "hours"
+                    let minuteUnit = minutes == 1 ? "minute" : "minutes"
+                    formattedDuration = String(format: "%d %@ %02d %@", hours, hourUnit, minutes, minuteUnit)
+                } else {
+                    // Experience is shorter than 1 hour
+                    let minutes = Int(duration / 60)
+                    let seconds = Int(duration.truncatingRemainder(dividingBy: 60))
+                    let minuteUnit = minutes == 1 ? "minute" : "minutes"
+                    let secondUnit = seconds == 1 ? "second" : "seconds"
+                    formattedDuration = String(format: "%d %@ %02d %@", minutes, minuteUnit, seconds, secondUnit)
+                }
                 
                 if !experience.credits.voiceOverCredit.isEmpty {
                     return "Read by \(experience.credits.voiceOverCredit) · \(formattedDuration)"
@@ -268,21 +299,29 @@ class ViewControllerExperienceSelect: UIViewController {
         maskLayer.addSublayer(opaqueLayer)
         
         descriptionLabel.layer.mask = maskLayer
-    
+        
         // Set Thumbnail Image
         if let thumbnailImage = thumbnailImage {
             self.thumbnailImage.image = thumbnailImage
         }
+    }
         
-        /*
         // MARK: - Navigation
         
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showVideoPlayer" {
+            if let videoPlayerViewController = segue.destination as? ViewControllerVideoPlayer {
+                if let selectedExperience = selectedExperience {
+                    videoPlayerViewController.experienceData = selectedExperience
+                    videoPlayerViewController.genre = selectedGenre
+                    videoPlayerViewController.experienceName = selectedExperienceName
+                } else {
+                    print("Selected experience is nil. Segue cancelled.")
+                    return
+                }
+            }
         }
-        */
     }
 }
 
