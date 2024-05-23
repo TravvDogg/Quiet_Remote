@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tabControl: UISegmentedControl!
     @IBOutlet weak var uiEllipsesButton: UIButton!
     
+    @IBOutlet weak var experienceSelectButton: UIButton!
     
     // MARK: - Actions
     @IBAction func uiEllipsesButtonPressed(_ sender: UIButton) {

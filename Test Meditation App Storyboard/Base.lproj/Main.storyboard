@@ -89,6 +89,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="v0M-i8-Oz6"/>
+                        <outlet property="experienceSelectButton" destination="MhW-Cd-l51" id="zZE-OM-dfw"/>
                         <outlet property="headingLabel" destination="m5i-Ba-pUZ" id="YfY-ID-Jlg"/>
                         <outlet property="tabControl" destination="Dlq-mv-MMy" id="yxo-dx-1zb"/>
                         <outlet property="uiEllipsesButton" destination="zi8-TX-12P" id="ZQt-Ik-tur"/>
@@ -154,7 +155,7 @@
                                     <action selector="UiExperienceSelectEllipsesButtonPressed:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="xcK-zF-sXm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
                                 <rect key="frame" x="50" y="679" width="314" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +184,7 @@
                                     <action selector="segueToVideoPlayer:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="NNv-WX-4YA"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
                                 <rect key="frame" x="20" y="140" width="374" height="374"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -291,7 +292,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="2Hs-bH-RKv"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="center" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-o2-ypi">
+                            <progressView opaque="NO" contentMode="center" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-o2-ypi">
                                 <rect key="frame" x="40" y="638" width="334" height="6"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
@@ -299,7 +300,7 @@
                                     <constraint firstAttribute="height" constant="6.2000000000000002" id="8rf-ck-7Oj"/>
                                 </constraints>
                             </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
                                 <imageReference key="minimumValueImage" image="waveform" catalog="system" renderingMode="hierarchical-single">
                                     <hierarchicalColors>
@@ -342,6 +343,7 @@
                     <navigationItem key="navigationItem" id="bw9-sX-fk5"/>
                     <connections>
                         <outlet property="balanceSlider" destination="3QJ-9S-zSX" id="wpx-t6-TXO"/>
+                        <outlet property="experienceProgress" destination="JFQ-o2-ypi" id="OrK-9K-gag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD1-n1-JQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -350,7 +352,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ThumbnailImage4.png" width="1080" height="1080"/>
+        <image name="ThumbnailImage.png" width="1080" height="1080"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gobackward.10" catalog="system" width="119" height="128"/>
