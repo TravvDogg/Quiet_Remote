@@ -43,7 +43,7 @@
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="GroundTint"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stress and Anxiety Releif" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Ba-pUZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stress and Anxiety Relief" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5i-Ba-pUZ">
                                 <rect key="frame" x="50" y="56" width="314" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -89,6 +89,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="v0M-i8-Oz6"/>
+                        <outlet property="experienceSelectButton" destination="MhW-Cd-l51" id="zZE-OM-dfw"/>
                         <outlet property="headingLabel" destination="m5i-Ba-pUZ" id="YfY-ID-Jlg"/>
                         <outlet property="tabControl" destination="Dlq-mv-MMy" id="yxo-dx-1zb"/>
                         <outlet property="uiEllipsesButton" destination="zi8-TX-12P" id="ZQt-Ik-tur"/>
@@ -154,7 +155,7 @@
                                     <action selector="UiExperienceSelectEllipsesButtonPressed:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="xcK-zF-sXm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
                                 <rect key="frame" x="50" y="679" width="314" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +184,7 @@
                                     <action selector="segueToVideoPlayer:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="NNv-WX-4YA"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThumbnailImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-EP-xud">
                                 <rect key="frame" x="20" y="140" width="374" height="374"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -192,7 +193,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ldH-p7-OVI"/>
-                        <color key="backgroundColor" red="0.42352941179999998" green="0.39607843139999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="GroundPrimary"/>
                         <constraints>
                             <constraint firstItem="Ldw-oq-ies" firstAttribute="top" secondItem="H3J-v0-tr0" secondAttribute="bottom" constant="20" id="478-oP-OsG"/>
                             <constraint firstItem="Jod-EP-xud" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="20" id="8Ep-wA-bQ9"/>
@@ -291,7 +292,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="2Hs-bH-RKv"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="center" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-o2-ypi">
+                            <progressView opaque="NO" contentMode="center" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-o2-ypi">
                                 <rect key="frame" x="40" y="638" width="334" height="6"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
@@ -299,29 +300,18 @@
                                     <constraint firstAttribute="height" constant="6.2000000000000002" id="8rf-ck-7Oj"/>
                                 </constraints>
                             </progressView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
-                                <imageReference key="minimumValueImage" image="waveform" catalog="system" renderingMode="hierarchical-single">
-                                    <hierarchicalColors>
-                                        <color systemColor="labelColor"/>
-                                        <color systemColor="secondaryLabelColor"/>
-                                        <color systemColor="tertiaryLabelColor"/>
-                                    </hierarchicalColors>
-                                </imageReference>
-                                <imageReference key="maximumValueImage" image="mic" catalog="system" renderingMode="hierarchical-single">
-                                    <hierarchicalColors>
-                                        <color systemColor="labelColor"/>
-                                        <color systemColor="secondaryLabelColor"/>
-                                        <color systemColor="tertiaryLabelColor"/>
-                                    </hierarchicalColors>
-                                </imageReference>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <imageReference key="minimumValueImage" image="waveform" catalog="system" symbolScale="large"/>
+                                <imageReference key="maximumValueImage" image="person.wave.2.fill" catalog="system" symbolScale="large"/>
                                 <connections>
                                     <action selector="balanceSlider:" destination="smQ-Hf-FSP" eventType="valueChanged" id="eQB-mg-nwQ"/>
                                 </connections>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0h2-cv-3cw"/>
-                        <color key="backgroundColor" red="0.42352941179999998" green="0.39607843139999999" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="GroundPrimary"/>
                         <constraints>
                             <constraint firstItem="JFQ-o2-ypi" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="40" id="2mF-h2-baa"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="DPy-39-k9r" secondAttribute="trailing" constant="50" id="3Pm-XV-DWw"/>
@@ -342,6 +332,7 @@
                     <navigationItem key="navigationItem" id="bw9-sX-fk5"/>
                     <connections>
                         <outlet property="balanceSlider" destination="3QJ-9S-zSX" id="wpx-t6-TXO"/>
+                        <outlet property="experienceProgress" destination="JFQ-o2-ypi" id="OrK-9K-gag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD1-n1-JQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -350,26 +341,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ThumbnailImage4.png" width="1080" height="1080"/>
+        <image name="ThumbnailImage.png" width="1080" height="1080"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="gobackward.10" catalog="system" width="119" height="128"/>
         <image name="goforward.10" catalog="system" width="119" height="128"/>
         <image name="iphone.radiowaves.left.and.right" catalog="system" width="128" height="85"/>
         <image name="mic" catalog="system" width="110" height="128"/>
+        <image name="person.wave.2.fill" catalog="system" width="128" height="118"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="waveform" catalog="system" width="125" height="128"/>
+        <namedColor name="GroundPrimary">
+            <color red="0.42352941176470588" green="0.396078431372549" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="GroundTint">
             <color red="0.71764705882352942" green="0.67843137254901964" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

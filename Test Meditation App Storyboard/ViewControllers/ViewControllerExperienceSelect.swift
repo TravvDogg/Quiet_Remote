@@ -41,19 +41,44 @@ class ViewControllerExperienceSelect: UIViewController {
             
         }
         
-        // Get the duration of the .flac file
-        var duration: TimeInterval?
-        if let soundFilePath = Bundle.main.path(forResource: experience.soundFile, ofType: nil, inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
-            let url = URL(fileURLWithPath: soundFilePath)
-            let asset = AVURLAsset(url:url)
-            
+        // Get the duration of the ambient music and voice-over files
+        var ambientMusicDuration: TimeInterval?
+        var voiceOverDuration: TimeInterval?
+
+        if let ambientMusicFilePath = Bundle.main.path(forResource: experience.ambientMusicFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
+            let ambientMusicUrl = URL(fileURLWithPath: ambientMusicFilePath)
+            let ambientMusicAsset = AVURLAsset(url: ambientMusicUrl)
             do {
-                duration = try await asset.load(.duration).seconds
+                ambientMusicDuration = try await ambientMusicAsset.load(.duration).seconds
             } catch {
-                print("Failed to load duration: \(error.localizedDescription)")
+                print("Failed to load ambient music duration: \(error.localizedDescription)")
             }
+        } else {
+            print("Failed getting ambient music at Media/Experiences/\(genre)/\(experienceName)/\(experience.ambientMusicFile).mp3")
         }
-        return(experience, thumbnailImage, duration)
+
+        if let voiceOverFilePath = Bundle.main.path(forResource: experience.voiceOverFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
+            let voiceOverUrl = URL(fileURLWithPath: voiceOverFilePath)
+            let voiceOverAsset = AVURLAsset(url: voiceOverUrl)
+            do {
+                voiceOverDuration = try await voiceOverAsset.load(.duration).seconds
+            } catch {
+                print("Failed to load voice-over duration: \(error.localizedDescription)")
+            }
+        } else {
+            print("Failed getting voice-over at Media/Experiences/\(genre)/\(experienceName)/\(experience.voiceOverFile).mp3")
+        }
+        // Set the duration variable to the length of the longer file
+        var duration: TimeInterval?
+        if let ambientMusicDuration = ambientMusicDuration, let voiceOverDuration = voiceOverDuration {
+            duration = max(ambientMusicDuration, voiceOverDuration)
+        } else if let ambientMusicDuration = ambientMusicDuration {
+            duration = ambientMusicDuration
+        } else if let voiceOverDuration = voiceOverDuration {
+            duration = voiceOverDuration
+        }
+
+        return (experience, thumbnailImage, duration)
     }
     
         // MARK: - Outlets
@@ -154,9 +179,9 @@ class ViewControllerExperienceSelect: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         configureUI()
-
         if let backgroundColor = ColorManager.shared.backgroundColor {
             self.backgroundView.backgroundColor = backgroundColor
+            //TODO: - set background color to be seperate from the main genre's colors.
         }
         
         if let tintColor = ColorManager.shared.tintColor {
@@ -187,7 +212,8 @@ class ViewControllerExperienceSelect: UIViewController {
         print("Thumbnail: \(experience.thumbnail)")
         print("Has Voice Over: \(experience.hasVoiceOver)")
         print("Has Ambient Sound: \(experience.hasAmbientSound)")
-        print("SoundFile: \(experience.soundFile)")
+        print("Voice Over File: \(experience.voiceOverFile)")
+        print("Ambient Music File: \(experience.ambientMusicFile)")
         print("Subtitles: \(experience.subtitles)")
         print("Has Haptics: \(experience.hasHaptics)")
         print("Haptics: \(experience.haptics)")
@@ -227,36 +253,36 @@ class ViewControllerExperienceSelect: UIViewController {
         
         // Set Credits text
         func creditToDisplay(experience: Experience, duration: TimeInterval?) -> String {
+            var formattedDuration = ""
+
             if let duration = duration {
-                let formattedDuration: String
-                
                 if duration >= 3600 {
-                    // Experience is longer than 1 hour
                     let hours = Int(duration / 3600)
                     let minutes = Int((duration.truncatingRemainder(dividingBy: 3600)) / 60)
                     let hourUnit = hours == 1 ? "hour" : "hours"
                     let minuteUnit = minutes == 1 ? "minute" : "minutes"
                     formattedDuration = String(format: "%d %@ %02d %@", hours, hourUnit, minutes, minuteUnit)
                 } else {
-                    // Experience is shorter than 1 hour
                     let minutes = Int(duration / 60)
                     let seconds = Int(duration.truncatingRemainder(dividingBy: 60))
                     let minuteUnit = minutes == 1 ? "minute" : "minutes"
                     let secondUnit = seconds == 1 ? "second" : "seconds"
                     formattedDuration = String(format: "%d %@ %02d %@", minutes, minuteUnit, seconds, secondUnit)
                 }
-                
-                if !experience.credits.voiceOverCredit.isEmpty {
-                    return "Read by \(experience.credits.voiceOverCredit) · \(formattedDuration)"
-                } else if !experience.credits.scriptCredit.isEmpty {
-                    return "Script by \(experience.credits.scriptCredit)· \(formattedDuration)"
-                } else {
-                    return formattedDuration
-                }
+            }
+
+            if !experience.credits.voiceOverCredit.isEmpty {
+                return "Read by \(experience.credits.voiceOverCredit)" + (formattedDuration.isEmpty ? "" : " · \(formattedDuration)")
+            } else if !experience.credits.scriptCredit.isEmpty {
+                return "Script by \(experience.credits.scriptCredit)" + (formattedDuration.isEmpty ? "" : " · \(formattedDuration)")
+            } else if !formattedDuration.isEmpty {
+                return formattedDuration
             } else {
+                print("failed to display duration or any credits: read by: \(experience.credits.voiceOverCredit). script by: \(experience.credits.scriptCredit). duration: \(String(describing: duration))")
                 return ""
             }
         }
+
         
         creditsLabel.text = creditToDisplay(experience: experience, duration: duration)
         
