@@ -336,7 +336,7 @@ class ViewControllerExperienceSelect: UIViewController {
         
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showVideoPlayer" {
+        if segue.identifier == "showVideoPlayer" || segue.identifier == "showCredits" {
             if let videoPlayerViewController = segue.destination as? ViewControllerVideoPlayer {
                 if let selectedExperience = selectedExperience {
                     videoPlayerViewController.experienceData = selectedExperience

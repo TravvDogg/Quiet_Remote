@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B08AA102C020C2700BFC305 /* ViewControllerCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B08AA0F2C020C2700BFC305 /* ViewControllerCredits.swift */; };
 		5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2134342BB2507E0050BAAE /* Experiences.swift */; };
 		5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */; };
 		5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22A3AC2B9187B10006C7A3 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B08AA0F2C020C2700BFC305 /* ViewControllerCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCredits.swift; sourceTree = "<group>"; };
 		5B2134342BB2507E0050BAAE /* Experiences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Experiences.swift; sourceTree = "<group>"; };
 		5B22A3A72B9187B10006C7A3 /* Test Meditation App Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test Meditation App Storyboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B22A3AA2B9187B10006C7A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				5B22A3AE2B9187B10006C7A3 /* ViewController.swift */,
 				5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */,
+				5B08AA0F2C020C2700BFC305 /* ViewControllerCredits.swift */,
 				5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */,
 			);
 			path = ViewControllers;
@@ -168,6 +171,7 @@
 				5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */,
 				5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */,
 				5BE811E92BDF5B6700A002EE /* ColorAssets.swift in Sources */,
+				5B08AA102C020C2700BFC305 /* ViewControllerCredits.swift in Sources */,
 				5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */,
 				5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */,
 				5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */,

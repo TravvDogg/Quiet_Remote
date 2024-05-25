@@ -240,6 +240,21 @@
             </objects>
             <point key="canvasLocation" x="1209" y="766"/>
         </scene>
+        <!--View Controller Credits-->
+        <scene sceneID="0Xt-PN-dL3">
+            <objects>
+                <viewController id="ctY-sJ-KGh" customClass="ViewControllerCredits" customModule="Test_Meditation_App_Storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CHp-Wz-dpx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="haE-j3-YPY"/>
+                        <color key="backgroundColor" name="GroundPrimary"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mkp-5Z-nFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="1448"/>
+        </scene>
         <!--View Controller Video Player-->
         <scene sceneID="Fgv-nL-INI">
             <objects>
