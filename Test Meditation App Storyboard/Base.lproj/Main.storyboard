@@ -66,7 +66,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.42352941176470588" green="0.396078431372549" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="GroundPrimary"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="zi8-TX-12P" secondAttribute="trailing" id="2dd-K1-tHU"/>
@@ -274,6 +274,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="26" scale="large"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="rewind:" destination="smQ-Hf-FSP" eventType="touchUpInside" id="ecr-sg-SVD"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-my-uH7" userLabel="Play Button">
                                         <rect key="frame" x="113" y="0.0" width="88" height="72"/>
@@ -283,6 +286,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="35" scale="large"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="togglePlayPause:" destination="smQ-Hf-FSP" eventType="touchUpInside" id="i7n-YB-GK7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcE-FV-lxk" userLabel="Forward Button">
                                         <rect key="frame" x="226" y="5.5" width="88" height="61.5"/>
@@ -292,6 +298,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="26" scale="large"/>
                                             <color key="baseForegroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="fastForward:" destination="smQ-Hf-FSP" eventType="touchUpInside" id="VTd-aG-6dv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -319,7 +328,7 @@
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <imageReference key="minimumValueImage" image="waveform" catalog="system" symbolScale="large"/>
-                                <imageReference key="maximumValueImage" image="person.wave.2.fill" catalog="system" symbolScale="large"/>
+                                <imageReference key="maximumValueImage" image="mic" catalog="system" symbolScale="large"/>
                                 <connections>
                                     <action selector="balanceSlider:" destination="smQ-Hf-FSP" eventType="valueChanged" id="eQB-mg-nwQ"/>
                                 </connections>
@@ -346,8 +355,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="bw9-sX-fk5"/>
                     <connections>
+                        <outlet property="backgroundView" destination="bhz-D9-NRm" id="PdZ-HR-Yef"/>
                         <outlet property="balanceSlider" destination="3QJ-9S-zSX" id="wpx-t6-TXO"/>
                         <outlet property="experienceProgress" destination="JFQ-o2-ypi" id="OrK-9K-gag"/>
+                        <outlet property="forwardButton" destination="WcE-FV-lxk" id="VRe-hw-LZP"/>
+                        <outlet property="playbackToggle" destination="jWi-my-uH7" id="4TG-7H-xhK"/>
+                        <outlet property="rewindButton" destination="wCN-Dy-P4p" id="QKP-iB-qbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD1-n1-JQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -363,7 +376,6 @@
         <image name="goforward.10" catalog="system" width="119" height="128"/>
         <image name="iphone.radiowaves.left.and.right" catalog="system" width="128" height="85"/>
         <image name="mic" catalog="system" width="110" height="128"/>
-        <image name="person.wave.2.fill" catalog="system" width="128" height="118"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="waveform" catalog="system" width="125" height="128"/>
         <namedColor name="GroundPrimary">

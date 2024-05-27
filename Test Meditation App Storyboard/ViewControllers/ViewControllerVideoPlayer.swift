@@ -16,28 +16,52 @@ class ViewControllerVideoPlayer: UIViewController {
     
     @IBOutlet weak var experienceProgress: UIProgressView!
     
+    @IBOutlet weak var backgroundView: UIView!
+    
+    
+    @IBOutlet weak var playbackToggle: UIButton!
+    var isPlaying = false
+    
+    @IBOutlet weak var rewindButton: UIButton!
+    
+    @IBOutlet weak var forwardButton: UIButton!
     // MARK: - Actions
     
     
     // Audio volume customisation
     
     // Parameters
-    var ambientMusicVolumeDefault: Float = 0.25
+    var ambientMusicVolumeDefault: Float = 0.35
     var voiceOverVolumeDefault: Float = 1.0
     
     var ambientMusicVolumeMax: Float = 0.75
     var ambientMusicVolumeMin: Float = 0.0
     var voiceOverVolumeMax: Float = 1.0
     var voiceOverVolumeMin: Float = 0.0
+    
     // Update values
     @IBAction func balanceSlider(_ sender: UISlider) {
         balanceSlider.value = roundf(balanceSlider.value) // Slider value snapping
         
         var sliderDecimalValue = balanceSlider.value / balanceSlider.maximumValue
-        calculateVolume(value: sliderDecimalValue)
+        calculateVolume(value: 1 - sliderDecimalValue)
     }
     
 
+    @IBAction func togglePlayPause(_ sender: UIButton) {
+        if isPlaying {
+            pauseAudio()
+        } else {
+            playAudio()
+        }
+    }
+    
+    
+    @IBAction func fastForward(_ sender: UIButton) {
+    }
+    
+    @IBAction func rewind(_ sender: UIButton) {
+    }
     
     // MARK: - Properties
     
@@ -72,12 +96,17 @@ class ViewControllerVideoPlayer: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureAudioEngine()
+        if let backgroundColor = ColorManager.shared.backgroundColor {
+            self.backgroundView.backgroundColor = backgroundColor
+            //TODO: - set background color to be seperate from the main genre's colors.
+        }
         
         guard let experienceData = experienceData else {
             print("Experience data is unavailable.")
             return
         }
         
+        playbackToggle.setImage(UIImage(systemName: "play.fill"), for: .normal)
         playAudio()
         
         setAmbientMusicVolume(ambientMusicVolumeDefault)
@@ -157,31 +186,45 @@ class ViewControllerVideoPlayer: UIViewController {
     func playAudio() {
         let ambientMusicDuration = getAudioFileDuration(ambientMusicFile)
         let voiceOverDuration = getAudioFileDuration(voiceOverFile)
-        
+
         longerDuration = max(ambientMusicDuration, voiceOverDuration)
-        
+
         var completionHandler: (() -> Void)?
-        
+
         if ambientMusicDuration >= voiceOverDuration {
             completionHandler = {
-                print("Ambient Music finished, triggering end of playback.")
-                self.handleEndOfPlayback()
+                DispatchQueue.main.async {
+                    print("Ambient Music finished, triggering end of playback.")
+                    self.handleEndOfPlayback()
+                }
             }
         } else {
             completionHandler = {
-                print("VoiceOver finished, triggering end of playback.")
-                self.handleEndOfPlayback()
+                DispatchQueue.main.async {
+                    print("VoiceOver finished, triggering end of playback.")
+                    self.handleEndOfPlayback()
+                }
             }
         }
-        
+
         ambientMusicPlayerNode.scheduleFile(ambientMusicFile, at: nil, completionHandler: ambientMusicDuration >= voiceOverDuration ? completionHandler : nil)
         voiceOverPlayerNode.scheduleFile(voiceOverFile, at: nil, completionHandler: voiceOverDuration > ambientMusicDuration ? completionHandler : nil)
-        
+
         ambientMusicPlayerNode.play()
         voiceOverPlayerNode.play()
-        
+
         startProgressTimer()
+        isPlaying = true
+        animateButtonIcon(to: "pause.fill")
     }
+
+    func pauseAudio() {
+        ambientMusicPlayerNode.pause()
+        voiceOverPlayerNode.pause()
+        isPlaying = false
+        animateButtonIcon(to: "play.fill")
+    }
+
     
     func startProgressTimer() {
         progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
@@ -196,19 +239,18 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     
     func handleEndOfPlayback() {
+        print("Handling end of playback.")
         progressTimer?.invalidate()
         progressTimer = nil
         experienceProgress.setProgress(1.0, animated: true)
-    }
-    
-    func pauseAudio() {
-        ambientMusicPlayerNode.pause()
-        voiceOverPlayerNode.pause()
+        stopAudio()
     }
 
     func stopAudio() {
+        print("Stopping audio.")
         ambientMusicPlayerNode.stop()
         voiceOverPlayerNode.stop()
+        audioEngine.stop()
     }
     
     func setAmbientMusicVolume(_ volume: Float) {
@@ -222,9 +264,10 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     
     deinit {
+        print("Deinitializing ViewControllerVideoPlayer.")
         stopAudio()
-        audioEngine.stop()
     }
+    
     
     // Volume Calculation
     func calculateVolume(value: Float) {
@@ -235,13 +278,21 @@ class ViewControllerVideoPlayer: UIViewController {
                 voiceOverVolume = voiceOverVolumeDefault + 2 * (0.5 - value) * (voiceOverVolumeDefault - voiceOverVolumeMin)
                 ambientVolume = ambientMusicVolumeDefault - 2 * (0.5 - value) * (ambientMusicVolumeDefault - voiceOverVolumeMin)
             } else {
-                voiceOverVolume = voiceOverVolumeDefault + 2 * (value - 0.5) * (voiceOverVolumeDefault - voiceOverVolumeMin)
+                voiceOverVolume = voiceOverVolumeDefault + 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
                 ambientVolume = voiceOverVolumeDefault - 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
             }
             
             setVoiceOverVolume(voiceOverVolume)
             setAmbientMusicVolume(ambientVolume)
         }
+    
+    func animateButtonIcon(to SymbolName: String) {
+        if let symbolImage = UIImage(systemName: SymbolName) {
+            self.playbackToggle.imageView?.setSymbolImage(symbolImage, contentTransition: .replace.byLayer)
+        } else {
+            print("could not create symbol image")
+        }
+    }
     
     /*
     // MARK: - Navigation
