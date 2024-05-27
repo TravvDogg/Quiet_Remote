@@ -129,8 +129,8 @@ class ViewControllerExperienceSelect: UIViewController {
                 UIAction (
                     title: "Credits",
                     image: UIImage(systemName: "info.circle"),
-                    handler: {_ in
-                        print("Credits action selected")
+                    handler: { [weak self] _ in
+                        self?.segueToCredits(sender)
                     }
                 )
             ]
@@ -164,6 +164,27 @@ class ViewControllerExperienceSelect: UIViewController {
                 print("Selected genre or experience name is missing.")
             }
     }
+    
+    @IBAction func segueToCredits(_ sender: UIButton) {
+        print("credits pressed")
+        if let genre = selectedGenre, let experienceName = selectedExperienceName {
+                Task {
+                    let (experience, thumbnailImage, duration) = await loadExperienceData(genre: genre, experienceName: experienceName)
+                    selectedExperience = experience
+                    
+                    if selectedExperience != nil {
+                        // Perform the segue to the video player
+                        performSegue(withIdentifier: "showCredits", sender: self)
+                    } else {
+                        print("Selected experience is nil. Segue cancelled.")
+                    }
+                }
+            } else {
+                // Handle the case when selectedGenre or selectedExperienceName is nil
+                print("Selected genre or experience name is missing.")
+            }
+    }
+    
 
         
         // MARK: - UI Configuration
@@ -336,16 +357,24 @@ class ViewControllerExperienceSelect: UIViewController {
         
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showVideoPlayer" || segue.identifier == "showCredits" {
-            if let videoPlayerViewController = segue.destination as? ViewControllerVideoPlayer {
-                if let selectedExperience = selectedExperience {
-                    videoPlayerViewController.experienceData = selectedExperience
-                    videoPlayerViewController.genre = selectedGenre
-                    videoPlayerViewController.experienceName = selectedExperienceName
-                } else {
-                    print("Selected experience is nil. Segue cancelled.")
-                    return
-                }
+        // Ensure selectedExperience is not nil before proceeding
+        guard let selectedExperience = selectedExperience else {
+            print("Selected experience is nil. Segue cancelled.")
+            return
+        }
+
+        // Check the segue identifier and type cast to the correct view controller
+        if segue.identifier == "showVideoPlayer" {
+            if let viewController = segue.destination as? ViewControllerVideoPlayer {
+                viewController.experienceData = selectedExperience
+                viewController.genre = selectedGenre
+                viewController.experienceName = selectedExperienceName
+            }
+        } else if segue.identifier == "showCredits" {
+            if let viewController = segue.destination as? ViewControllerCredits {
+                viewController.experienceData = selectedExperience
+                viewController.genre = selectedGenre
+                viewController.experienceName = selectedExperienceName
             }
         }
     }

@@ -155,6 +155,13 @@
                                     <action selector="UiExperienceSelectEllipsesButtonPressed:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="xcK-zF-sXm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xV-ri-ccc">
+                                <rect key="frame" x="50" y="679" width="314" height="33.5"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="segueToCredits:" destination="ZiO-ZK-qHb" eventType="touchUpInside" id="bkP-qk-60T"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Description Description Description Description Description Description" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-vD-oBj">
                                 <rect key="frame" x="50" y="679" width="314" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -199,6 +206,7 @@
                             <constraint firstItem="Jod-EP-xud" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="20" id="8Ep-wA-bQ9"/>
                             <constraint firstItem="ucV-8R-Pap" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="76" id="B92-x9-fDf"/>
                             <constraint firstItem="TXv-ag-DMd" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="BNU-0s-yKK"/>
+                            <constraint firstItem="0xV-ri-ccc" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="Dup-7l-wgi"/>
                             <constraint firstItem="iUK-zH-cNE" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="Hjg-uZ-s5M"/>
                             <constraint firstItem="Jod-EP-xud" firstAttribute="centerX" secondItem="wfn-oH-g37" secondAttribute="centerX" id="JWW-Yj-fnE"/>
                             <constraint firstItem="5fc-vD-oBj" firstAttribute="top" secondItem="Ldw-oq-ies" secondAttribute="bottom" constant="23" id="LH7-AR-gRh"/>
@@ -209,12 +217,15 @@
                             <constraint firstItem="Ldw-oq-ies" firstAttribute="top" secondItem="Jod-EP-xud" secondAttribute="bottom" constant="90" id="Ppb-bl-xT0"/>
                             <constraint firstItem="Exd-96-9Sy" firstAttribute="trailing" secondItem="wfn-oH-g37" secondAttribute="trailingMargin" id="Pwi-Fc-bh1"/>
                             <constraint firstItem="ldH-p7-OVI" firstAttribute="trailing" secondItem="TXv-ag-DMd" secondAttribute="trailing" constant="50" id="YrZ-yg-CnJ"/>
+                            <constraint firstItem="0xV-ri-ccc" firstAttribute="top" secondItem="5fc-vD-oBj" secondAttribute="top" id="aYT-z3-evG"/>
                             <constraint firstItem="ldH-p7-OVI" firstAttribute="trailing" secondItem="H3J-v0-tr0" secondAttribute="trailing" constant="144" id="bqe-id-CbP"/>
                             <constraint firstItem="H3J-v0-tr0" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="144" id="buP-2A-xbg"/>
+                            <constraint firstItem="0xV-ri-ccc" firstAttribute="bottom" secondItem="5fc-vD-oBj" secondAttribute="bottom" id="cWN-Mw-PWp"/>
                             <constraint firstAttribute="centerX" secondItem="Ldw-oq-ies" secondAttribute="centerX" id="cZE-wW-IJI"/>
                             <constraint firstItem="H3J-v0-tr0" firstAttribute="top" secondItem="Jod-EP-xud" secondAttribute="bottom" constant="20" id="fqy-Cr-X4J"/>
                             <constraint firstItem="ldH-p7-OVI" firstAttribute="trailing" secondItem="ucV-8R-Pap" secondAttribute="trailing" constant="50" id="gTc-GD-KbM"/>
                             <constraint firstItem="ldH-p7-OVI" firstAttribute="trailing" secondItem="Jod-EP-xud" secondAttribute="trailing" constant="20" id="hjz-lj-s5g"/>
+                            <constraint firstItem="ldH-p7-OVI" firstAttribute="trailing" secondItem="0xV-ri-ccc" secondAttribute="trailing" constant="50" id="nhD-cL-n9R"/>
                             <constraint firstItem="5fc-vD-oBj" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="qTb-pN-mRG"/>
                             <constraint firstItem="Jod-EP-xud" firstAttribute="top" secondItem="ucV-8R-Pap" secondAttribute="bottom" constant="40" id="uko-E0-3s2"/>
                             <constraint firstItem="TXv-ag-DMd" firstAttribute="top" secondItem="ucV-8R-Pap" secondAttribute="bottom" constant="4" id="xUe-Kn-cIi"/>
@@ -234,26 +245,54 @@
                         <outlet property="uiExperienceSelectEllipsesButton" destination="Exd-96-9Sy" id="Jah-jJ-UXa"/>
                         <outlet property="voiceOverIndicator" destination="KtF-wK-vKb" id="OJm-Ad-C6b"/>
                         <segue destination="smQ-Hf-FSP" kind="show" identifier="showVideoPlayer" id="ZU7-R0-J7r"/>
+                        <segue destination="ctY-sJ-KGh" kind="show" identifier="showCredits" id="pna-dx-eiY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwB-f0-gub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="766"/>
+            <point key="canvasLocation" x="1208.6956521739132" y="765.40178571428567"/>
         </scene>
         <!--View Controller Credits-->
         <scene sceneID="0Xt-PN-dL3">
             <objects>
                 <viewController id="ctY-sJ-KGh" customClass="ViewControllerCredits" customModule="Test_Meditation_App_Storyboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CHp-Wz-dpx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNI-UD-IgZ">
+                                <rect key="frame" x="20" y="40" width="374" height="826"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Experience Title and credits">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="haE-j3-YPY"/>
                         <color key="backgroundColor" name="GroundPrimary"/>
+                        <constraints>
+                            <constraint firstItem="haE-j3-YPY" firstAttribute="trailing" secondItem="uNI-UD-IgZ" secondAttribute="trailing" constant="20" id="Nj8-0k-t6V"/>
+                            <constraint firstItem="haE-j3-YPY" firstAttribute="bottom" secondItem="uNI-UD-IgZ" secondAttribute="bottom" constant="20" id="PVI-co-asO"/>
+                            <constraint firstItem="uNI-UD-IgZ" firstAttribute="top" secondItem="haE-j3-YPY" secondAttribute="top" constant="40" id="Yvu-yp-DYD"/>
+                            <constraint firstItem="uNI-UD-IgZ" firstAttribute="leading" secondItem="haE-j3-YPY" secondAttribute="leading" constant="20" id="x6a-u5-nM1"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Dnw-w0-peq"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="CHp-Wz-dpx" id="rlt-SK-4y5"/>
+                        <outlet property="creditsTextView" destination="uNI-UD-IgZ" id="XwT-3p-TIb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mkp-5Z-nFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="1448"/>
+            <point key="canvasLocation" x="1208.6956521739132" y="1447.7678571428571"/>
         </scene>
         <!--View Controller Video Player-->
         <scene sceneID="Fgv-nL-INI">
