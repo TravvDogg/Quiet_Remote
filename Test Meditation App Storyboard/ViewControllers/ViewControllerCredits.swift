@@ -8,10 +8,18 @@
 import UIKit
 
 class ViewControllerCredits: UIViewController {
+    
+    // MARK: - Outlets
 
     @IBOutlet weak var creditsTextView: UITextView!
     
     @IBOutlet weak var backgroundView: UIView!
+    
+    // MARK: - Actions
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Properties
     var experienceData: Experience?

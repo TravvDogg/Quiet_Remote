@@ -39,12 +39,19 @@ class ViewControllerVideoPlayer: UIViewController {
     var voiceOverVolumeMax: Float = 1.0
     var voiceOverVolumeMin: Float = 0.0
     
+    var lastSnappedValue: Float = 0.0
+    let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
     // Update values
     @IBAction func balanceSlider(_ sender: UISlider) {
-        balanceSlider.value = roundf(balanceSlider.value) // Slider value snapping
-        
-        var sliderDecimalValue = balanceSlider.value / balanceSlider.maximumValue
-        calculateVolume(value: 1 - sliderDecimalValue)
+        let roundedValue = roundf(balanceSlider.value) // Slider value snapping
+        balanceSlider.value = roundedValue
+        if roundedValue != lastSnappedValue {
+            var sliderDecimalValue = balanceSlider.value / balanceSlider.maximumValue
+            calculateVolume(value: 1 - sliderDecimalValue)
+            
+            feedbackGenerator.impactOccurred()
+            lastSnappedValue = roundedValue
+        }
     }
     
 
@@ -54,6 +61,7 @@ class ViewControllerVideoPlayer: UIViewController {
         } else {
             playAudio()
         }
+        feedbackGenerator.impactOccurred()
     }
     
     
@@ -106,7 +114,6 @@ class ViewControllerVideoPlayer: UIViewController {
             return
         }
         
-        playbackToggle.setImage(UIImage(systemName: "play.fill"), for: .normal)
         playAudio()
         
         setAmbientMusicVolume(ambientMusicVolumeDefault)
@@ -216,9 +223,10 @@ class ViewControllerVideoPlayer: UIViewController {
         startProgressTimer()
         isPlaying = true
         DispatchQueue.main.async {
-            UIView.transition(with: self.playbackToggle, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
                 self.playbackToggle.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            }, completion: nil)
+            }
+            animator.startAnimation()
         }
     }
 
@@ -227,9 +235,10 @@ class ViewControllerVideoPlayer: UIViewController {
         voiceOverPlayerNode.pause()
         isPlaying = false
         DispatchQueue.main.async {
-            UIView.transition(with: self.playbackToggle, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
                 self.playbackToggle.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            }, completion: nil)
+            }
+            animator.startAnimation()
         }
     }
 

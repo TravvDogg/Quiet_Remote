@@ -93,9 +93,6 @@ class ViewControllerExperienceSelect: UIViewController {
     
     @IBOutlet weak var uiExperienceSelectEllipsesButton: UIButton!
     
-    // Title, Credits, Thumbnail, and Description
-    @IBOutlet weak var titleButtonText: UIButton!
-    
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var moreButton: UILabel!
@@ -183,6 +180,10 @@ class ViewControllerExperienceSelect: UIViewController {
                 // Handle the case when selectedGenre or selectedExperienceName is nil
                 print("Selected genre or experience name is missing.")
             }
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 
