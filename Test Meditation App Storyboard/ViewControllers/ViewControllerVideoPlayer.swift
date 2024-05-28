@@ -215,14 +215,22 @@ class ViewControllerVideoPlayer: UIViewController {
 
         startProgressTimer()
         isPlaying = true
-        animateButtonIcon(to: "pause.fill")
+        DispatchQueue.main.async {
+            UIView.transition(with: self.playbackToggle, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.playbackToggle.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }, completion: nil)
+        }
     }
 
     func pauseAudio() {
         ambientMusicPlayerNode.pause()
         voiceOverPlayerNode.pause()
         isPlaying = false
-        animateButtonIcon(to: "play.fill")
+        DispatchQueue.main.async {
+            UIView.transition(with: self.playbackToggle, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                self.playbackToggle.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            }, completion: nil)
+        }
     }
 
     
@@ -232,10 +240,11 @@ class ViewControllerVideoPlayer: UIViewController {
     @objc func updateProgress() {
         guard longerDuration > 0 else { return }
         
-        let currentTime = ambientMusicPlayerNode.lastRenderTime.flatMap { ambientMusicPlayerNode.playerTime(forNodeTime: $0)}?.sampleTime ?? 0
-        
-        let progress = Double(currentTime) / ambientMusicFile.fileFormat.sampleRate / longerDuration
-        experienceProgress.setProgress(Float(progress), animated: true)
+        if isPlaying {
+            let currentTime = ambientMusicPlayerNode.lastRenderTime.flatMap { ambientMusicPlayerNode.playerTime(forNodeTime: $0)}?.sampleTime ?? 0
+            let progress = Double(currentTime) / ambientMusicFile.fileFormat.sampleRate / longerDuration
+            experienceProgress.setProgress(Float(progress), animated: true)
+        }
     }
     
     func handleEndOfPlayback() {
@@ -285,14 +294,6 @@ class ViewControllerVideoPlayer: UIViewController {
             setVoiceOverVolume(voiceOverVolume)
             setAmbientMusicVolume(ambientVolume)
         }
-    
-    func animateButtonIcon(to SymbolName: String) {
-        if let symbolImage = UIImage(systemName: SymbolName) {
-            self.playbackToggle.imageView?.setSymbolImage(symbolImage, contentTransition: .replace.byLayer)
-        } else {
-            print("could not create symbol image")
-        }
-    }
     
     /*
     // MARK: - Navigation
