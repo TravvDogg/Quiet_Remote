@@ -13,21 +13,13 @@ class ViewControllerVideoPlayer: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var balanceSlider: UISlider!
-    
     @IBOutlet weak var experienceProgress: UIProgressView!
-    
     @IBOutlet weak var backgroundView: UIView!
-    
-    
     @IBOutlet weak var playbackToggle: UIButton!
     var isPlaying = false
-    
     @IBOutlet weak var rewindButton: UIButton!
-    
     @IBOutlet weak var forwardButton: UIButton!
     // MARK: - Actions
-    
-    
     // Audio volume customisation
     
     // Parameters
@@ -64,11 +56,12 @@ class ViewControllerVideoPlayer: UIViewController {
         feedbackGenerator.impactOccurred()
     }
     
-    
     @IBAction func fastForward(_ sender: UIButton) {
+        jumpToTime(10)
     }
     
     @IBAction func rewind(_ sender: UIButton) {
+        jumpToTime(-10)
     }
     
     // MARK: - Properties
@@ -79,31 +72,19 @@ class ViewControllerVideoPlayer: UIViewController {
     
     
     // Audio Engine
-    var audioEngine: AVAudioEngine!
-    var ambientMusicPlayerNode: AVAudioPlayerNode!
-    var voiceOverPlayerNode: AVAudioPlayerNode!
+    var ambientMusicPlayer: AVAudioPlayer!
+    var voiceOverPlayer: AVAudioPlayer!
     
-    var ambientMusicFile: AVAudioFile!
-    var voiceOverFile: AVAudioFile!
-    
-    var ambientMusicVolume: Float = 1.0
-    var voiceOverVolume: Float = 1.0
-        
     var progressTimer: Timer?
     var longerDuration: Double = 0.0
     
     
     // MARK: - UI Configuration
-    func configureUI() {
-        if #available(iOS 13.0, *) {
-            // Force dark mode to fit the app's theme
-            overrideUserInterfaceStyle = .dark
-        }
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        configureAudioEngine()
+//        configureAudioEngine()
         if let backgroundColor = ColorManager.shared.backgroundColor {
             self.backgroundView.backgroundColor = backgroundColor
             //TODO: - set background color to be seperate from the main genre's colors.
@@ -113,13 +94,19 @@ class ViewControllerVideoPlayer: UIViewController {
             print("Experience data is unavailable.")
             return
         }
+        setupAudioPlayers()
         
-        playAudio()
+        playAudio() // error here
         
-        setAmbientMusicVolume(ambientMusicVolumeDefault)
-        setVoiceOverVolume(voiceOverVolumeDefault)
+        calculateVolume(value: 0.5)
     }
 
+    func configureUI() {
+        if #available(iOS 13.0, *) {
+            // Force dark mode to fit the app's theme
+            overrideUserInterfaceStyle = .dark
+        }
+    }
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,8 +118,6 @@ class ViewControllerVideoPlayer: UIViewController {
             } else {
                 print("Presenting view controller is not an instance of OverlayViewController or mainViewController is nil")
             }
-            
-            // start video player audio.
         }
     override func viewWillDisappear(_ animated: Bool) {
         stopAudio()
@@ -140,49 +125,32 @@ class ViewControllerVideoPlayer: UIViewController {
     
     // MARK: - Utility and Helper Functions
     
-    func configureAudioEngine() {
-        audioEngine = AVAudioEngine()
-        
-        ambientMusicPlayerNode = AVAudioPlayerNode()
-        voiceOverPlayerNode = AVAudioPlayerNode()
-        
-        audioEngine.attach(ambientMusicPlayerNode)
-        audioEngine.attach(voiceOverPlayerNode)
-        
-        guard let ambientMusicFileName = experienceData?.ambientMusicFile,
-              let voiceOverFileName = experienceData?.voiceOverFile else {
-            print("Failed to unwrap optional file names")
+    func setupAudioPlayers() {
+        guard let experienceData = experienceData,
+        let genre = genre,
+        let experienceName = experienceName else {
+            print("Experience data is unavailable")
             return
         }
         
-        // Load audio files
-        guard let ambientMusicUrl = Bundle.main.url(forResource:
-                "Media/Experiences/\(genre! as String)/\(experienceName! as String)/\(ambientMusicFileName)", withExtension: "mp3"),
-              let voiceOverUrl = Bundle.main.url(forResource:
-                "Media/Experiences/\(genre! as String)/\(experienceName! as String)/\(voiceOverFileName)", withExtension: "mp3")
-        else {
-            print("Failed to load audio files")
-            print(ambientMusicFileName)
+        let ambientMusicFileName = experienceData.ambientMusicFile
+        let voiceOverFileName = experienceData.voiceOverFile
+        
+        guard let ambientMusicUrl = Bundle.main.url(forResource: "Media/Experiences/\(genre)/\(experienceName)/\(ambientMusicFileName)", withExtension: "mp3"),
+            let voiceOverUrl = Bundle.main.url(forResource:"Media/Experiences/\(genre)/\(experienceName)/\(voiceOverFileName)", withExtension: "mp3") else {
+            print("Failed to load audio files.")
             return
         }
         
         do {
-            ambientMusicFile = try AVAudioFile(forReading: ambientMusicUrl)
-            voiceOverFile = try AVAudioFile(forReading: voiceOverUrl)
+            ambientMusicPlayer = try AVAudioPlayer(contentsOf: ambientMusicUrl)
+            voiceOverPlayer = try AVAudioPlayer(contentsOf: voiceOverUrl)
         } catch {
             print("Error loading audio files: \(error.localizedDescription)")
         }
         
-        // Connect audio nodes to audio engine
-        audioEngine.connect(ambientMusicPlayerNode, to: audioEngine.mainMixerNode, format: ambientMusicFile.processingFormat)
-        audioEngine.connect(voiceOverPlayerNode, to: audioEngine.mainMixerNode, format: voiceOverFile.processingFormat)
-        
-        // Prepare the engine
-        do {
-            try audioEngine.start()
-        } catch {
-            print("Error starting the audio engine: \(error.localizedDescription)")
-        }
+        ambientMusicPlayer?.volume = ambientMusicVolumeDefault
+        voiceOverPlayer?.volume = voiceOverVolumeDefault
     }
     
     func getAudioFileDuration(_ audioFile: AVAudioFile) -> Double {
@@ -190,70 +158,59 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     
         // MARK: - Playback Controls
+    
     func playAudio() {
-        let ambientMusicDuration = getAudioFileDuration(ambientMusicFile)
-        let voiceOverDuration = getAudioFileDuration(voiceOverFile)
-
-        longerDuration = max(ambientMusicDuration, voiceOverDuration)
-
-        var completionHandler: (() -> Void)?
-
-        if ambientMusicDuration >= voiceOverDuration {
-            completionHandler = {
-                DispatchQueue.main.async {
-                    print("Ambient Music finished, triggering end of playback.")
-                    self.handleEndOfPlayback()
-                }
-            }
-        } else {
-            completionHandler = {
-                DispatchQueue.main.async {
-                    print("VoiceOver finished, triggering end of playback.")
-                    self.handleEndOfPlayback()
-                }
-            }
-        }
-
-        ambientMusicPlayerNode.scheduleFile(ambientMusicFile, at: nil, completionHandler: ambientMusicDuration >= voiceOverDuration ? completionHandler : nil)
-        voiceOverPlayerNode.scheduleFile(voiceOverFile, at: nil, completionHandler: voiceOverDuration > ambientMusicDuration ? completionHandler : nil)
-
-        ambientMusicPlayerNode.play()
-        voiceOverPlayerNode.play()
-
+        ambientMusicPlayer?.play()
+        voiceOverPlayer.play()
         startProgressTimer()
         isPlaying = true
-        DispatchQueue.main.async {
-            let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
-                self.playbackToggle.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            }
-            animator.startAnimation()
-        }
+        updatePlaybackToggleIcon()
     }
 
     func pauseAudio() {
-        ambientMusicPlayerNode.pause()
-        voiceOverPlayerNode.pause()
+        ambientMusicPlayer.pause()
+        voiceOverPlayer.pause()
         isPlaying = false
-        DispatchQueue.main.async {
-            let animator = UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut) {
-                self.playbackToggle.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            }
-            animator.startAnimation()
+        updatePlaybackToggleIcon()
+    }
+    
+    func jumpToTime(_ time: Double) {
+        guard let ambientMusicPlayer = ambientMusicPlayer, let voiceOverPlayer = voiceOverPlayer else { return }
+        
+        ambientMusicPlayer.currentTime += time
+        voiceOverPlayer.currentTime += time
+    
+        if ambientMusicPlayer.currentTime < 0 {
+            ambientMusicPlayer.currentTime = 0
         }
+        
+        if voiceOverPlayer.currentTime < 0 {
+            voiceOverPlayer.currentTime = 0
+        }
+        
+    }
+    
+    func updatePlaybackToggleIcon() {
+        let iconName = isPlaying ? "pause.fill" : "play.fill"
+        playbackToggle.setImage(UIImage(systemName: iconName), for: .normal)
     }
 
     
     func startProgressTimer() {
         progressTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
     }
+
     @objc func updateProgress() {
-        guard longerDuration > 0 else { return }
+        guard let ambientMusicPlayer = ambientMusicPlayer, let voiceOverPlayer = voiceOverPlayer else { return }
         
-        if isPlaying {
-            let currentTime = ambientMusicPlayerNode.lastRenderTime.flatMap { ambientMusicPlayerNode.playerTime(forNodeTime: $0)}?.sampleTime ?? 0
-            let progress = Double(currentTime) / ambientMusicFile.fileFormat.sampleRate / longerDuration
-            experienceProgress.setProgress(Float(progress), animated: true)
-        }
+        let ambientMusicDuration = ambientMusicPlayer.duration
+        let voiceOverDuration = voiceOverPlayer.duration
+        
+        longerDuration = max(ambientMusicDuration, voiceOverDuration)
+        
+        let currentTime = ambientMusicPlayer.currentTime
+        let progress = currentTime / longerDuration
+        experienceProgress.setProgress(Float(progress), animated: true)
     }
     
     func handleEndOfPlayback() {
@@ -266,19 +223,27 @@ class ViewControllerVideoPlayer: UIViewController {
 
     func stopAudio() {
         print("Stopping audio.")
-        ambientMusicPlayerNode.stop()
-        voiceOverPlayerNode.stop()
-        audioEngine.stop()
+        ambientMusicPlayer?.stop()
+        voiceOverPlayer.stop()
+        progressTimer?.invalidate()
+        progressTimer = nil
     }
     
-    func setAmbientMusicVolume(_ volume: Float) {
-        ambientMusicVolume = volume // volume to be used within the code
-        ambientMusicPlayerNode.volume = volume // volume that the audio engine uses
-    }
-    
-    func setVoiceOverVolume(_ volume: Float) {
-        voiceOverVolume = volume // volume to be used within the code
-        voiceOverPlayerNode.volume = volume // volume that the audio engine uses
+    // Volume Calculation
+    func calculateVolume(value: Float) {
+        let voiceOverVolume: Float
+        let ambientVolume: Float
+        
+        if value <= 0.5 {
+            voiceOverVolume = voiceOverVolumeDefault + 2 * (0.5 - value) * (voiceOverVolumeDefault - voiceOverVolumeMin)
+            ambientVolume = ambientMusicVolumeDefault - 2 * (0.5 - value) * (ambientMusicVolumeDefault - voiceOverVolumeMin)
+        } else {
+            voiceOverVolume = voiceOverVolumeDefault + 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
+            ambientVolume = voiceOverVolumeDefault - 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
+        }
+        
+        ambientMusicPlayer?.volume = ambientVolume
+        voiceOverPlayer.volume = voiceOverVolume
     }
     
     deinit {
@@ -286,23 +251,6 @@ class ViewControllerVideoPlayer: UIViewController {
         stopAudio()
     }
     
-    
-    // Volume Calculation
-    func calculateVolume(value: Float) {
-            let voiceOverVolume: Float
-            let ambientVolume: Float
-            
-            if value <= 0.5 {
-                voiceOverVolume = voiceOverVolumeDefault + 2 * (0.5 - value) * (voiceOverVolumeDefault - voiceOverVolumeMin)
-                ambientVolume = ambientMusicVolumeDefault - 2 * (0.5 - value) * (ambientMusicVolumeDefault - voiceOverVolumeMin)
-            } else {
-                voiceOverVolume = voiceOverVolumeDefault + 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
-                ambientVolume = voiceOverVolumeDefault - 2 * (value - 0.5) * (voiceOverVolumeMax - voiceOverVolumeDefault)
-            }
-            
-            setVoiceOverVolume(voiceOverVolume)
-            setAmbientMusicVolume(ambientVolume)
-        }
     
     /*
     // MARK: - Navigation
