@@ -396,7 +396,7 @@
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <imageReference key="minimumValueImage" image="waveform" catalog="system" symbolScale="large"/>
-                                <imageReference key="maximumValueImage" image="mic" catalog="system" symbolScale="large"/>
+                                <imageReference key="maximumValueImage" image="waveform.slash" catalog="system" symbolScale="large"/>
                                 <connections>
                                     <action selector="balanceSlider:" destination="smQ-Hf-FSP" eventType="valueChanged" id="eQB-mg-nwQ"/>
                                 </connections>
@@ -446,6 +446,7 @@
         <image name="mic" catalog="system" width="110" height="128"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="waveform" catalog="system" width="125" height="128"/>
+        <image name="waveform.slash" catalog="system" width="123" height="128"/>
         <namedColor name="GroundPrimary">
             <color red="0.42352941176470588" green="0.396078431372549" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
