@@ -15,6 +15,8 @@
 		5B22A3B22B9187B10006C7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B02B9187B10006C7A3 /* Main.storyboard */; };
 		5B22A3B42B9187B20006C7A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B32B9187B20006C7A3 /* Assets.xcassets */; };
 		5B22A3B72B9187B20006C7A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */; };
+		5B4B4BDD2C0D302500CA2435 /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B4BDC2C0D302500CA2435 /* Subtitle.swift */; };
+		5B4B4BDF2C0D304E00CA2435 /* SubtitleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4B4BDE2C0D304E00CA2435 /* SubtitleParser.swift */; };
 		5B54E3632BD2139B00DAD2A8 /* Media in Resources */ = {isa = PBXBuildFile; fileRef = 5B54E3622BD2139B00DAD2A8 /* Media */; };
 		5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */; };
 		5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */; };
@@ -32,6 +34,8 @@
 		5B22A3B32B9187B20006C7A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B22A3B62B9187B20006C7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B22A3B82B9187B20006C7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B4B4BDC2C0D302500CA2435 /* Subtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
+		5B4B4BDE2C0D304E00CA2435 /* SubtitleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleParser.swift; sourceTree = "<group>"; };
 		5B54E3622BD2139B00DAD2A8 /* Media */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Media; sourceTree = "<group>"; };
 		5B90285A2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVideoPlayer.swift; sourceTree = "<group>"; };
 		5BCB34B32BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExperienceSelect.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				5BE811E82BDF5B6700A002EE /* ColorAssets.swift */,
 				5B22A3B52B9187B20006C7A3 /* LaunchScreen.storyboard */,
 				5B22A3B82B9187B20006C7A3 /* Info.plist */,
+				5B4B4BDC2C0D302500CA2435 /* Subtitle.swift */,
+				5B4B4BDE2C0D304E00CA2435 /* SubtitleParser.swift */,
 			);
 			path = "Test Meditation App Storyboard";
 			sourceTree = "<group>";
@@ -168,12 +174,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B4B4BDF2C0D304E00CA2435 /* SubtitleParser.swift in Sources */,
 				5B2134352BB2507E0050BAAE /* Experiences.swift in Sources */,
 				5B22A3AF2B9187B10006C7A3 /* ViewController.swift in Sources */,
 				5BE811E92BDF5B6700A002EE /* ColorAssets.swift in Sources */,
 				5B08AA102C020C2700BFC305 /* ViewControllerCredits.swift in Sources */,
 				5B22A3AB2B9187B10006C7A3 /* AppDelegate.swift in Sources */,
 				5BCB34B42BA2AA2C001D8E0C /* ViewControllerExperienceSelect.swift in Sources */,
+				5B4B4BDD2C0D302500CA2435 /* Subtitle.swift in Sources */,
 				5B22A3AD2B9187B10006C7A3 /* SceneDelegate.swift in Sources */,
 				5B90285B2BCBB735004F0F10 /* ViewControllerVideoPlayer.swift in Sources */,
 			);

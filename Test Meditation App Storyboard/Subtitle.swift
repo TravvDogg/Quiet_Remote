@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Subtitle {
+    let start: TimeInterval
+    let end: TimeInterval
+    let text: String
+}
