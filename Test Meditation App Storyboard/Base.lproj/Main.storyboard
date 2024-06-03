@@ -199,7 +199,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhq-xA-ywM">
-                                <rect key="frame" x="5" y="10" width="83.5" height="34.5"/>
+                                <rect key="frame" x="5" y="20" width="83.5" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Back" imagePadding="5">
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
@@ -219,7 +219,7 @@
                             <constraint firstItem="Jod-EP-xud" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="20" id="8Ep-wA-bQ9"/>
                             <constraint firstItem="ucV-8R-Pap" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="76" id="B92-x9-fDf"/>
                             <constraint firstItem="TXv-ag-DMd" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="BNU-0s-yKK"/>
-                            <constraint firstItem="Zhq-xA-ywM" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="10" id="Clf-1v-6gx"/>
+                            <constraint firstItem="Zhq-xA-ywM" firstAttribute="top" secondItem="ldH-p7-OVI" secondAttribute="top" constant="20" id="Clf-1v-6gx"/>
                             <constraint firstItem="0xV-ri-ccc" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="Dup-7l-wgi"/>
                             <constraint firstItem="iUK-zH-cNE" firstAttribute="leading" secondItem="ldH-p7-OVI" secondAttribute="leading" constant="50" id="Hjg-uZ-s5M"/>
                             <constraint firstItem="Jod-EP-xud" firstAttribute="centerX" secondItem="wfn-oH-g37" secondAttribute="centerX" id="JWW-Yj-fnE"/>
@@ -290,7 +290,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSs-ME-V2N">
-                                <rect key="frame" x="5" y="10" width="83.5" height="35"/>
+                                <rect key="frame" x="5" y="20" width="83" height="35"/>
                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Back" imagePadding="5">
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="large" weight="semibold"/>
@@ -307,10 +307,10 @@
                         <constraints>
                             <constraint firstItem="haE-j3-YPY" firstAttribute="trailing" secondItem="uNI-UD-IgZ" secondAttribute="trailing" constant="20" id="Nj8-0k-t6V"/>
                             <constraint firstItem="haE-j3-YPY" firstAttribute="bottom" secondItem="uNI-UD-IgZ" secondAttribute="bottom" constant="20" id="PVI-co-asO"/>
-                            <constraint firstItem="uNI-UD-IgZ" firstAttribute="top" secondItem="OSs-ME-V2N" secondAttribute="bottom" constant="25.5" id="Yvu-yp-DYD"/>
+                            <constraint firstItem="uNI-UD-IgZ" firstAttribute="top" secondItem="OSs-ME-V2N" secondAttribute="bottom" constant="15.5" id="Yvu-yp-DYD"/>
                             <constraint firstItem="OSs-ME-V2N" firstAttribute="leading" secondItem="haE-j3-YPY" secondAttribute="leading" constant="5" id="q2A-Su-anc"/>
                             <constraint firstItem="uNI-UD-IgZ" firstAttribute="leading" secondItem="haE-j3-YPY" secondAttribute="leading" constant="20" id="x6a-u5-nM1"/>
-                            <constraint firstItem="OSs-ME-V2N" firstAttribute="top" secondItem="haE-j3-YPY" secondAttribute="top" constant="10" id="zsm-Nb-M5E"/>
+                            <constraint firstItem="OSs-ME-V2N" firstAttribute="top" secondItem="haE-j3-YPY" secondAttribute="top" constant="20" id="zsm-Nb-M5E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dnw-w0-peq"/>
@@ -395,8 +395,8 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-9S-zSX">
                                 <rect key="frame" x="38" y="781" width="338" height="31"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <imageReference key="minimumValueImage" image="waveform" catalog="system" symbolScale="large"/>
-                                <imageReference key="maximumValueImage" image="waveform.slash" catalog="system" symbolScale="large"/>
+                                <imageReference key="minimumValueImage" image="waveform.slash" catalog="system" symbolScale="large"/>
+                                <imageReference key="maximumValueImage" image="waveform" catalog="system" symbolScale="large"/>
                                 <connections>
                                     <action selector="balanceSlider:" destination="smQ-Hf-FSP" eventType="valueChanged" id="eQB-mg-nwQ"/>
                                 </connections>

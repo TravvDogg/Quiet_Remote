@@ -111,13 +111,13 @@ class ViewController: UIViewController {
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.SunrisePrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.SunriseTint)
             ColorManager.shared.header = "Energize and Inspire"
-            selectedGenre = "Sunrise"
+            selectedGenre = "Ground" // Just for now
         case 2:
             //Grass
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GrassPrimary)
             ColorManager.shared.tintColor = UIColor(named: ColorAssets.GrassTint)
             ColorManager.shared.header = "Tranquility and Focus"
-            selectedGenre = "Grass"
+            selectedGenre = "Ground" // Just for now
         case 3:
             //Moon
             ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.MoonPrimary)
@@ -258,6 +258,12 @@ class ViewController: UIViewController {
                 player?.stop()
             }
         }
+        
+        //Set default value to Ground
+        ColorManager.shared.backgroundColor = UIColor(named: ColorAssets.GroundPrimary)
+        ColorManager.shared.tintColor = UIColor(named: ColorAssets.GroundTint)
+        ColorManager.shared.header = "Stress and Anxiety Relief"
+        selectedGenre = "Ground"
         
         updateEllipsesButtonUI()
         
@@ -412,7 +418,7 @@ class ViewController: UIViewController {
             if segue.identifier == "OpenExperienceSelect" {
                 if let viewControllerExperienceSelect = segue.destination as? ViewControllerExperienceSelect {
                     viewControllerExperienceSelect.mainViewController = self
-                    viewControllerExperienceSelect.selectedGenre = "Ground"
+                    viewControllerExperienceSelect.selectedGenre = selectedGenre
                     viewControllerExperienceSelect.selectedExperienceName = "Experience Demo"
                 }
             }

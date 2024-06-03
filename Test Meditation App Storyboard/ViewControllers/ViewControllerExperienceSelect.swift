@@ -44,30 +44,38 @@ class ViewControllerExperienceSelect: UIViewController {
         // Get the duration of the ambient music and voice-over files
         var ambientMusicDuration: TimeInterval?
         var voiceOverDuration: TimeInterval?
-
-        if let ambientMusicFilePath = Bundle.main.path(forResource: experience.ambientMusicFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
-            let ambientMusicUrl = URL(fileURLWithPath: ambientMusicFilePath)
-            let ambientMusicAsset = AVURLAsset(url: ambientMusicUrl)
-            do {
-                ambientMusicDuration = try await ambientMusicAsset.load(.duration).seconds
-            } catch {
-                print("Failed to load ambient music duration: \(error.localizedDescription)")
+        if experience.hasAmbientSound {
+            if let ambientMusicFilePath = Bundle.main.path(forResource: experience.ambientMusicFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
+                let ambientMusicUrl = URL(fileURLWithPath: ambientMusicFilePath)
+                let ambientMusicAsset = AVURLAsset(url: ambientMusicUrl)
+                do {
+                    ambientMusicDuration = try await ambientMusicAsset.load(.duration).seconds
+                } catch {
+                    print("Failed to load ambient music duration: \(error.localizedDescription)")
+                }
+            } else {
+                print("Failed getting ambient music at Media/Experiences/\(genre)/\(experienceName)/\(experience.ambientMusicFile).mp3")
             }
-        } else {
-            print("Failed getting ambient music at Media/Experiences/\(genre)/\(experienceName)/\(experience.ambientMusicFile).mp3")
         }
 
-        if let voiceOverFilePath = Bundle.main.path(forResource: experience.voiceOverFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
-            let voiceOverUrl = URL(fileURLWithPath: voiceOverFilePath)
-            let voiceOverAsset = AVURLAsset(url: voiceOverUrl)
-            do {
-                voiceOverDuration = try await voiceOverAsset.load(.duration).seconds
-            } catch {
-                print("Failed to load voice-over duration: \(error.localizedDescription)")
+        if experience.hasVoiceOver {
+            if let voiceOverFilePath = Bundle.main.path(forResource: experience.voiceOverFile, ofType: "mp3", inDirectory: "Media/Experiences/\(genre)/\(experienceName)") {
+                let voiceOverUrl = URL(fileURLWithPath: voiceOverFilePath)
+                let voiceOverAsset = AVURLAsset(url: voiceOverUrl)
+                do {
+                    voiceOverDuration = try await voiceOverAsset.load(.duration).seconds
+                } catch {
+                    print("Failed to load voice-over duration: \(error.localizedDescription)")
+                }
+            } else {
+                print("Failed getting voice-over at Media/Experiences/\(genre)/\(experienceName)/\(experience.voiceOverFile).mp3")
             }
-        } else {
-            print("Failed getting voice-over at Media/Experiences/\(genre)/\(experienceName)/\(experience.voiceOverFile).mp3")
         }
+        
+        if !experience.hasVoiceOver && !experience.hasAmbientSound {
+            print("No voiceOver or Ambient Sound Supplied.")
+        }
+        
         // Set the duration variable to the length of the longer file
         var duration: TimeInterval?
         if let ambientMusicDuration = ambientMusicDuration, let voiceOverDuration = voiceOverDuration {
