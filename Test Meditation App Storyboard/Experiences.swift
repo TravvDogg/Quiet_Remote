@@ -15,7 +15,7 @@ struct Experience: Codable {
     let hasAmbientSound: Bool
     let voiceOverFile: String
     let ambientMusicFile: String
-    let subtitles: String
+    let subtitles: String?
     let hasHaptics: Bool
     let haptics: String
     let credits: Credits

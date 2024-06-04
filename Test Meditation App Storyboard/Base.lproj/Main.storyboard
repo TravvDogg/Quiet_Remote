@@ -401,20 +401,29 @@
                                     <action selector="balanceSlider:" destination="smQ-Hf-FSP" eventType="valueChanged" id="eQB-mg-nwQ"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="default value" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yzK-mp-uqE">
+                                <rect key="frame" x="50" y="373" width="314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0h2-cv-3cw"/>
                         <color key="backgroundColor" name="GroundPrimary"/>
                         <constraints>
                             <constraint firstItem="JFQ-o2-ypi" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="40" id="2mF-h2-baa"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="DPy-39-k9r" secondAttribute="trailing" constant="50" id="3Pm-XV-DWw"/>
+                            <constraint firstItem="yzK-mp-uqE" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="50" id="4ew-pg-bj0"/>
                             <constraint firstItem="fl8-Ra-evd" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="5" id="E9f-Hc-duv"/>
                             <constraint firstItem="3QJ-9S-zSX" firstAttribute="top" secondItem="DPy-39-k9r" secondAttribute="bottom" constant="20" id="F84-99-mLk"/>
                             <constraint firstItem="JFQ-o2-ypi" firstAttribute="trailing" secondItem="3QJ-9S-zSX" secondAttribute="trailing" id="Pu2-0K-dJt"/>
+                            <constraint firstItem="yzK-mp-uqE" firstAttribute="centerY" secondItem="bhz-D9-NRm" secondAttribute="centerY" constant="-60" id="afH-8f-HNp"/>
                             <constraint firstItem="JFQ-o2-ypi" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="40" id="cUf-6x-pSW"/>
                             <constraint firstItem="fl8-Ra-evd" firstAttribute="top" secondItem="0h2-cv-3cw" secondAttribute="top" constant="10" id="eXo-Cw-6Ft"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="top" secondItem="JFQ-o2-ypi" secondAttribute="bottom" constant="45" id="fVV-Vq-pDR"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="centerX" secondItem="bhz-D9-NRm" secondAttribute="centerX" id="jcq-2i-PBO"/>
                             <constraint firstItem="DPy-39-k9r" firstAttribute="leading" secondItem="0h2-cv-3cw" secondAttribute="leading" constant="50" id="lu2-Hs-eFA"/>
+                            <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="yzK-mp-uqE" secondAttribute="trailing" constant="50" id="npU-yx-hxq"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="JFQ-o2-ypi" secondAttribute="trailing" constant="40" id="snm-hF-6Pv"/>
                             <constraint firstItem="3QJ-9S-zSX" firstAttribute="leading" secondItem="JFQ-o2-ypi" secondAttribute="leading" id="ste-LP-iIe"/>
                             <constraint firstItem="0h2-cv-3cw" firstAttribute="trailing" secondItem="DPy-39-k9r" secondAttribute="trailing" constant="50" id="u0M-ai-43J"/>
@@ -429,6 +438,7 @@
                         <outlet property="forwardButton" destination="WcE-FV-lxk" id="VRe-hw-LZP"/>
                         <outlet property="playbackToggle" destination="jWi-my-uH7" id="4TG-7H-xhK"/>
                         <outlet property="rewindButton" destination="wCN-Dy-P4p" id="QKP-iB-qbM"/>
+                        <outlet property="subtitleLabel" destination="yzK-mp-uqE" id="b84-Iz-dMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD1-n1-JQc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,6 +19,8 @@ class ViewControllerVideoPlayer: UIViewController {
     var isPlaying = false
     @IBOutlet weak var rewindButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
+    
+    @IBOutlet weak var subtitleLabel: UILabel!
     // MARK: - Actions
     // Audio volume customisation
     
@@ -80,6 +82,10 @@ class ViewControllerVideoPlayer: UIViewController {
     var progressTimer: Timer?
     var longerDuration: Double = 0.0
     
+    // Subtitles
+    var subtitles: [Subtitle] = []
+    var subtitleTimer: Timer?
+    
     
     // MARK: - UI Configuration
 
@@ -98,6 +104,17 @@ class ViewControllerVideoPlayer: UIViewController {
         }
         setupAudioPlayers()
         
+        if let subtitleFileName = experienceData.subtitles, !subtitleFileName.isEmpty {
+            let subtitleFilePath = Bundle.main.path(forResource: "Media/Experiences/\(genre!)/\(experienceName!)/\(subtitleFileName)", ofType:"srt")
+            if let subtitleFilePath = subtitleFilePath {
+                subtitles = parseSRT(file: subtitleFilePath)
+            } else {
+                print("Subtitle path is invalid")
+            }
+        } else {
+            print("Subtitle file name is invalid or file name is not declared.")
+        }
+        
         if experienceData.hasAmbientSound || experienceData.hasVoiceOver {
             if let ambientMusicPlayer = ambientMusicPlayer, let voiceOverPlayer = voiceOverPlayer {
                 if experienceData.hasHaptics && !experienceData.hasVoiceOver {
@@ -107,7 +124,6 @@ class ViewControllerVideoPlayer: UIViewController {
                     ambientMusicPlayer.volume = 0.0
                     voiceOverPlayer.volume = voiceOverVolumeDefault
                 } else {
-                    print("No ambient sound of voice-over available")
                     // Handle case where no audio is present or available.
                 }
                 
@@ -146,10 +162,33 @@ class ViewControllerVideoPlayer: UIViewController {
         }
     override func viewWillDisappear(_ animated: Bool) {
         stopAudio()
+        stopSubtitleSync()
     }
     
     // MARK: - Utility and Helper Functions
     
+        // MARK: - Subtitle Functions
+    func startSubtitleSync() {
+        subtitleTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateSubtitle), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateSubtitle() {
+        let currentTime = max(ambientMusicPlayer?.currentTime ?? 0, voiceOverPlayer?.currentTime ?? 0)
+        
+        if let subtitle = subtitles.first(where: { $0.start <= currentTime && $0.end >= currentTime }) {
+            subtitleLabel.text = subtitle.text
+        } else {
+            subtitleLabel.text = ""
+        }
+    }
+    
+    func stopSubtitleSync() {
+        subtitleTimer?.invalidate()
+        subtitleTimer = nil
+    }
+    
+        // MARK: - Audio File Setup
+
     func setupAudioPlayers() {
         guard let experienceData = experienceData,
               let genre = genre,
@@ -196,7 +235,7 @@ class ViewControllerVideoPlayer: UIViewController {
         return Double(audioFile.length) / audioFile.fileFormat.sampleRate
     }
     
-        // MARK: - Playback Controls
+            // MARK: - Playback Controls
     
     func playAudio() {
         if let ambientMusicPlayer = ambientMusicPlayer {
@@ -207,6 +246,7 @@ class ViewControllerVideoPlayer: UIViewController {
         }
         
         startProgressTimer()
+        startSubtitleSync()
         isPlaying = true
         updatePlaybackToggleIcon()
     }
@@ -219,6 +259,7 @@ class ViewControllerVideoPlayer: UIViewController {
             voiceOverPlayer.pause()
         }
         isPlaying = false
+        stopSubtitleSync()
         updatePlaybackToggleIcon()
     }
     
@@ -232,6 +273,7 @@ class ViewControllerVideoPlayer: UIViewController {
         }
         isPlaying = false
         updatePlaybackToggleIcon()
+        stopSubtitleSync()
         progressTimer?.invalidate()
         progressTimer = nil
     }
@@ -314,6 +356,7 @@ class ViewControllerVideoPlayer: UIViewController {
     deinit {
         print("Deinitializing ViewControllerVideoPlayer.")
         stopAudio()
+        stopSubtitleSync()
     }
     
     
