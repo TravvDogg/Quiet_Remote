@@ -176,9 +176,32 @@ class ViewControllerVideoPlayer: UIViewController {
         let currentTime = max(ambientMusicPlayer?.currentTime ?? 0, voiceOverPlayer?.currentTime ?? 0)
         
         if let subtitle = subtitles.first(where: { $0.start <= currentTime && $0.end >= currentTime }) {
-            subtitleLabel.text = subtitle.text
+            if subtitleLabel.text != subtitle.text {
+                fadeOutSubtitle {
+                    self.subtitleLabel.text = subtitle.text
+                    self.fadeInSubtitle()
+                }
+            }
         } else {
-            subtitleLabel.text = ""
+            if !subtitleLabel.text!.isEmpty {
+                fadeOutSubtitle() {
+                    self.subtitleLabel.text = ""
+                }
+            }
+        }
+    }
+    
+    func fadeInSubtitle(duration: TimeInterval = 0.2) {
+        UIView.animate(withDuration: duration) {
+            self.subtitleLabel.alpha = 1.0
+        }
+    }
+    
+    func fadeOutSubtitle(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration, animations: {
+            self.subtitleLabel.alpha = 0.0
+        }) { _ in
+            completion?()
         }
     }
     
@@ -264,7 +287,6 @@ class ViewControllerVideoPlayer: UIViewController {
     }
     
     func stopAudio() {
-        print("Stopping audio.")
         if let ambientMusicPlayer = ambientMusicPlayer {
             ambientMusicPlayer.stop()
         }

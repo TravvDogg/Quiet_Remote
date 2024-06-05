@@ -171,7 +171,6 @@ class ViewControllerExperienceSelect: UIViewController {
     }
     
     @IBAction func segueToCredits(_ sender: UIButton) {
-        print("credits pressed")
         if let genre = selectedGenre, let experienceName = selectedExperienceName {
                 Task {
                     let (experience, thumbnailImage, duration) = await loadExperienceData(genre: genre, experienceName: experienceName)
